@@ -1,0 +1,58 @@
+<?php
+include("db.php");
+
+if (isset($_GET['tracking_number'])) {
+    $tracking_number = $_GET['tracking_number'];
+    $query = "SELECT * FROM water_installation WHERE tracking_number = $tracking_number";
+    $result = mysqli_query($conn, $query);
+
+    $row = mysqli_fetch_assoc($result);
+    if (mysqli_num_rows($result) == 0) {
+        echo "<h3>Tracking Number Does Not Exist</h3>";
+    } else {
+        $customer_name = $row['customer_name'];
+        $step = $row['step'];
+        $time_updated = $row['time_updated'];
+
+        echo "<br>";
+        echo "<h3>Customer Details</h3>";
+        echo "<br>";
+        echo "<text><b>Customer Name:</b> $customer_name</text>";
+        echo "<br>";
+        switch ($step) {
+            case 'Phase-2-Step-1':
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                echo "<p><i>Conduct inspection and advise/inform the applicant the standards in the proper lay-out of service line from tapping point to residence.</i></p>";
+                break;
+            case 'Phase-2-Step-2':
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                echo "<p><i>Please comply with all the requirements and remarks indicated therein.</i></p>";
+                break;
+            case 'Phase-2-Step-3':
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                echo "<p><i>Validating service line lay-out. Expect new process after business day</i></p>";
+                break;
+            case 'Phase-2-Step-4-Incomplete':
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                echo "<p><i>Inspecting service line laid out. Please wait for an email.</i></p>";
+                break;
+            case 'Phase-2-Step-4-Complete':
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                echo "<p><i>Service line approved.</i></p>";
+                break;
+            case 'Phase-3-Step-1':
+                echo "<text><b>Step: </b>Phase 3: Payment of Fees</text>";
+                echo "<p><i>Please go to the Tellers' Booth to sign the contract for Water Services and pay the corresponding water connection fees</i></p>";
+                break;
+            case 'Phase-4-Step-1':
+                echo "<text><b>Step: </b>Phase 4: Installation</text>";
+                echo "<p><i>The service connection installation is ongoing. Expect completion until 7-15 working days.</i></p>";
+                break;    
+            case 'Complete':
+                echo "<text><b>Step: </b>Water Installation Complete</text>";
+                echo "<br>";
+                break;
+        }
+        echo "<text><b>Time Updated:</b> $time_updated</text>";
+    }
+}

@@ -1,0 +1,48 @@
+version: "2"
+services:
+  php:
+    build: ./build/php
+    container_name: php-container
+    volumes:
+      - ./app:/var/www/html
+    ports:
+      - "80:80"
+    links:
+      - mysql
+    networks:
+      - bawadi_network
+  mysql:
+    ports:
+      - "3306:3306"
+    build: './build/mysql'
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "bawadi_db"
+      MYSQL_USER: "bawadi"
+      MYSQL_PASSWORD: "Bawadisql123!"
+    volumes:
+      - dbData:/var/lib/mysql
+    networks:
+      - bawadi_network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-container
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8082:80
+    networks:
+      - bawadi_network
+networks:
+  bawadi_network:
+    driver: bridge
+volumes:
+  app:
+  dbData:
+
