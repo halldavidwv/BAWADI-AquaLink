@@ -133,6 +133,10 @@
                 <a class='button' data-close aria-label="Close modal">Go Back</a>
             </form>
         </div>
+        <div class="reveal" id="step_details_window" data-reveal>
+            <div class="cell auto" id="step_details"></div>
+            <script type="text/javascript" src="step_details.js"></script>
+        </div>
     </div>
 </body>
 

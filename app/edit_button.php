@@ -41,11 +41,6 @@
                         <h3>Customer Details</h3>
                         <input type="text" name="customer_name" class="form-control" value="<?php echo $customer_name; ?>" placeholder="Customer Name" autofocus>
                         <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
-                        <h3>Step: </h3>
-                        <h4 id="step"></h4>
-                        <div class="row" id="step_details"></div>
-                        <script type="text/javascript" src="step_details.js"></script>
-                        <button class="button success" name='next_step' value="next_step">Next Step</button>
                         <div class="button-group align-center">
                             <button class="submit success button" name='update' value='update'>Save</button>
                             <a href="index.php" class='button'>Go Back</a>
