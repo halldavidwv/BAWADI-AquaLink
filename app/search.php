@@ -14,7 +14,11 @@ if (isset($search_value)) {
         echo "<td>" . $row['tracking_number'] . "</td>";
         echo "<td>" . $row['customer_name'] . "</td>";
         echo "<td>" . $row['email_address'] . "</td>";
-        echo "<td>" . $row['step'] . " <a data-open='step_details_window'><i class='fa-solid fa-circle-info fa-2xl'></i></a></td>";
+        echo "<td>" . $row['step'] . " 
+        <a id='step-button-" . $row['id'] . "' data-open='step_details_window' data-value='" . $row['step'] . "'>
+          <i class='fa-solid fa-circle-info fa-2xl'></i>
+        </a>
+        </td>";
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
@@ -32,7 +36,11 @@ if (isset($search_value)) {
         echo "<td>" . $row['tracking_number'] . "</td>";
         echo "<td>" . $row['customer_name'] . "</td>";
         echo "<td>" . $row['email_address'] . "</td>";
-        echo "<td>" . $row['step'] . " <a data-open='step_details_window'><i class='fa-solid fa-circle-info fa-2xl'></i></a></td>";
+        echo "<td>" . $row['step'] . " 
+        <a id='step-button-" . $row['id'] . "' data-open='step_details_window' data-value='" . $row['step'] . "'>
+          <i class='fa-solid fa-circle-info fa-2xl'></i>
+        </a>
+        </td>";
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
@@ -63,7 +71,11 @@ if (isset($search_value)) {
         echo "<td>" . $row['tracking_number'] . "</td>";
         echo "<td>" . $row['customer_name'] . "</td>";
         echo "<td>" . $row['email_address'] . "</td>";
-        echo "<td>" . $row['step'] . " <a data-open='step_details_window'><i class='fa-solid fa-circle-info fa-2xl'></i></a></td>";
+        echo "<td>" . $row['step'] . " 
+        <a id='step-button-" . $row['id'] . "' data-open='step_details_window' data-value='" . $row['step'] . "'>
+          <i class='fa-solid fa-circle-info fa-2xl'></i>
+        </a>
+        </td>";
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
@@ -81,7 +93,11 @@ if (isset($search_value)) {
         echo "<td>" . $row['tracking_number'] . "</td>";
         echo "<td>" . $row['customer_name'] . "</td>";
         echo "<td>" . $row['email_address'] . "</td>";
-        echo "<td>" . $row['step'] . " <a data-open='step_details_window'><i class='fa-solid fa-circle-info fa-2xl'></i></a></td>";
+        echo "<td>" . $row['step'] . " 
+        <a id='step-button-" . $row['id'] . "' data-open='step_details_window' data-value='" . $row['step'] . "'>
+          <i class='fa-solid fa-circle-info fa-2xl'></i>
+        </a>
+        </td>";
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>

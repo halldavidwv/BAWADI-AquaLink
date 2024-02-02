@@ -8,6 +8,7 @@ $(document).ready(function () {
         success: function (data) {
           $("#main-table").empty();
           $("#main-table").html(data);
+          $("#main-table").html(data).foundation();
         }
       });
     });
@@ -15,6 +16,7 @@ $(document).ready(function () {
       url: 'search.php',
       success: function (data) {
         $("#main-table").html(data);
+        $("#main-table").html(data).foundation();
       }
     });
 });
