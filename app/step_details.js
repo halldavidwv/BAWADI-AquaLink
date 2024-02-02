@@ -1,11 +1,10 @@
 $(document).ready(function () {
-  $.ajax({
-    url: "search.php",
-    dataType: "text",
-    success: function(stepValue) {
-      $('#step_details').empty();
-      switch(stepValue) {
-        case 'Phase-2-Step-1':
+  $(document).on("click", "a[id^='step-button-']", function () {
+    var stepValue = $(this).data('value');
+    console.log(stepValue);
+    $('#step_details').empty();
+    switch (stepValue) {
+      case 'Phase-2-Step-1':
         $('#step_details').append('<h3>Phase 2: Initial Inspection</h3>');
         $('#step_details').append(
           '<p class="lead">Conduct inspection and advise/inform the applicant the standards in the proper lay-out of service line from tapping point to residence.</p>'
@@ -55,7 +54,7 @@ $(document).ready(function () {
         break;
       default:
         $('#step_details').append('<h3>Please Select a Step to show details.</h3>');
-      }
     }
   });
+  $('#step_details').empty();
 });

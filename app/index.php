@@ -6,8 +6,7 @@
     <div class="grid-container">
         <div class="grid-y" style="background-image: url(includes/trybg.png);">
             <h1>
-                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img
-                        src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
+                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
             </h1>
         </div>
         <div class="container-banner banner-pads">
@@ -35,8 +34,7 @@
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><input name='tracking_number_search' id="tracking_number_search" type="search"
-                            placeholder="Tracking Number"></li>
+                    <li><input name='tracking_number_search' id="tracking_number_search" type="search" placeholder="Tracking Number"></li>
                 </ul>
             </div>
         </div>
@@ -125,17 +123,18 @@
                 <h1 class="text-center">Add New Customer</h1>
                 <br>
                 <h3>Customer Details</h3>
-                <input type="text" name="customer_name" class="form-control" value="<?php echo $customer_name; ?>"
-                    placeholder="Customer Name" autofocus>
-                <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>"
-                    placeholder="Email Address" autofocus>
+                <input type="text" name="customer_name" class="form-control" value="<?php echo $customer_name; ?>" placeholder="Customer Name" autofocus>
+                <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
                 <button class="submit success button" name='add_customer'>Save</button>
                 <a class='button' data-close aria-label="Close modal">Go Back</a>
             </form>
         </div>
         <div class="reveal" id="step_details_window" data-reveal>
             <div class="cell auto" id="step_details"></div>
-            <script type="text/javascript" src="step_details.js"></script>
+            <br>
+            <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     </div>
 </body>
