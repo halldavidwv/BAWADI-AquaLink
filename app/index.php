@@ -34,7 +34,7 @@
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><input name='tracking_number_search' id="tracking_number_search" type="search" placeholder="Tracking Number"></li>
+                    <li><input name='tracking_number_search' id="tracking_number_search" type="search" placeholder="Name / Tracking Number"></li>
                 </ul>
             </div>
         </div>

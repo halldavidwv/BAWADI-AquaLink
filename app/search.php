@@ -2,9 +2,15 @@
 include("db.php");
 
 $search_value = $_POST['search'];
+$sql = "";
 
 if (isset($search_value)) {
-  $sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
+  if (is_string($search_value)) {
+    $sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 8";
+  } else {
+    $sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
+  }
+
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
