@@ -77,6 +77,9 @@
                                         </td>
                                         <td>
                                             <?php echo $row['step']; ?>
+                                            <a id='step-button-<?php echo $row['id']; ?>' data-open='step_details_window' data-value='<?php echo $row['step']; ?>'>
+                                                <i class='fa-solid fa-circle-info fa-2xl'></i>
+                                            </a>
                                         </td>
                                         <td>
                                             <?php echo $row['time_updated']; ?>

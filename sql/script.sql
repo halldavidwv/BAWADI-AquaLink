@@ -7,7 +7,7 @@ CREATE TABLE `water_installation` (
   `tracking_number` int NOT NULL,
   `customer_name` varchar(200) NOT NULL,
   `email_address` varchar(200) NOT NULL,
-  `step` varchar(16) NOT NULL,
+  `step` varchar(32) NOT NULL,
   `time_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
