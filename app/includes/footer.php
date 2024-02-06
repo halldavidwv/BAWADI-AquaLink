@@ -3,3 +3,4 @@
 <script src="includes/initiate_foundation.js" defer></script>
 <script src="search_function.js"></script>
 <script type="text/javascript" src="step_details.js"></script>
+<script type="text/javascript" src="next_step_details.js"></script>

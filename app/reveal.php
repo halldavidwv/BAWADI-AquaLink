@@ -1,5 +1,5 @@
 <div class="reveal" id="add_button" data-reveal>
-    <form action="add_customer.php"" method=" post">
+    <form action="add_customer.php" method="post">
         <h1 class="text-center">Add New Customer</h1>
         <br>
         <h3>Customer Details</h3>
@@ -21,7 +21,11 @@
 </div>
 
 <div class="reveal" id="next_step_window" data-reveal>
-    <div class="cell auto" id="next_step"></div>
+    <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post">
+        <div class="cell auto" id="next_step">
+            
+        </div>
+    </form>
     <br>
     <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
