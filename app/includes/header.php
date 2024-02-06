@@ -14,6 +14,7 @@
   <link rel="stylesheet" id="gwt_wp-foundation-css" href="includes/foundation.css" type="text/css" media="all" />
   <link rel="stylesheet" id="gwt_wp-motion-ui-css" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" type="text/css" media="all" /> 
   <link rel="stylesheet" id="gwt_wp-style-css" href="includes/theme.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="includes/custom.css">
   <script src="includes/jquery-3.7.1.js"></script>
   <script src="includes/all.min.js"></script>
 </head>
