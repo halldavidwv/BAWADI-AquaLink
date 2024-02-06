@@ -51,6 +51,8 @@ if (isset($_GET['tracking_number'])) {
             case 'Complete':
                 echo "<text><b>Step: </b>Water Installation Complete</text>";
                 echo "<br>";
+                echo '<a class="button" data-open="installation_bill_window">View Bill</a>';
+                echo "<br>";
                 break;
         }
         echo "<text><b>Time Updated:</b> $time_updated</text>";

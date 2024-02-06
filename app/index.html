@@ -2339,17 +2339,91 @@
                     <input type="button" id="view_progress" value="View Progress">
                   </div>
                   <br>
+                  <a class="button" data-open="report_window">Report Problem</a>
+                  <br>
                   <div id="progressDetails">
                     <div id="customerCopy"></div>
                   </div>
                   <br>
                   <div id="reportDetails">
                     <div class="reveal" id="report_window" data-reveal>
+                      <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                       <form action="report_problem.php" method="post">
                         <h1>Test</h1>
                       </form>
                     </div>
-                    <a class="button" data-open="report_window">Report Problem</a>
+                  </div>
+                  <div id="billDetails">
+                    <div class="reveal" id="installation_bill_window" data-reveal>
+                      <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <div id="installation_bill_header" class="text-center">
+                        <h1>Water Installation Bill</h1>
+                        <br>
+                        <h4>Baguio Water District</h4>
+                        <br>
+                        <h4>Total New Connection Fees (Minimum)</h4>
+                      </div>
+                      <div id="installation_bill_content">
+                        <table id="bill_table" class="stack">
+                          <tbody>
+                            <tr>
+                              <td><b>Size of Water Meter</b></td>
+                              <td>½”Ø</td>
+                            </tr>
+                            <tr>
+                              <td>Cost of Meter:</td>
+                              <td>PHP 2,760.00</td>
+                            </tr>
+                            <tr>
+                              <td>Cost of materials (advance):</td>
+                              <td>PHP 2,928.30</td>
+                            </tr>
+                            <tr>
+                              <td>Installation Cost</td>
+                              <td>concrete and asphalt road</td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">1m x 1m Without Crossing the Road</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <li>National Road</li>
+                              </td>
+                              <td>PHP 3,001.45</td>
+                            </tr>
+                            <tr>
+                              <td colspan="2"></td>
+                            </tr>
+                            <tr>
+                              <td>OTHERS:</td>
+                              <td><b>Residential</b></td>
+                            </tr>
+                            <tr>
+                              <td>Inspection Fee, to be paid upon application (Re-inspection fee shall
+                                be collected for water service connection applications that lapsed the
+                                1-year validity):</td>
+                              <td>PHP 600.00</td>
+                            </tr>
+                            <tr>
+                              <td>Contract Fee:</td>
+                              <td>PHP 300.00</td>
+                            </tr>
+                            <tr>
+                              <td>Water Source Development Fee (WSDF)</td>
+                              <td>None</td>
+                            </tr>
+                            <tr>
+                              <td><b>Total:</b></td>
+                              <td><b>PHP 9,589.75</b></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </article>
