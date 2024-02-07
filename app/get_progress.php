@@ -42,7 +42,9 @@ if (isset($_GET['tracking_number'])) {
                 break;
             case 'Phase-3-Step-1':
                 echo "<text><b>Step: </b>Phase 3: Payment of Fees</text>";
-                echo "<p><i>Please go to the Tellers' Booth to sign the contract for Water Services and pay the corresponding water connection fees</i></p>";
+                echo "<p><i>Please go to the Tellers' Booth to sign the contract for Water Services and pay the corresponding water connection fees. Click the View Bill button for Bill Details.</i></p>";
+                echo '<a class="button" data-open="installation_bill_window">View Bill</a>';
+                echo "<br>";
                 break;
             case 'Phase-4-Step-1':
                 echo "<text><b>Step: </b>Phase 4: Installation</text>";
@@ -50,8 +52,6 @@ if (isset($_GET['tracking_number'])) {
                 break;    
             case 'Complete':
                 echo "<text><b>Step: </b>Water Installation Complete</text>";
-                echo "<br>";
-                echo '<a class="button" data-open="installation_bill_window">View Bill</a>';
                 echo "<br>";
                 break;
         }
