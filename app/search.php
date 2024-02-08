@@ -49,7 +49,7 @@ if (isset($search_value)) {
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
-        <a id='next-step-button-" . $row['id'] . "' class='button' data-open='next_step_window' data-value='" . $row['step'] . "'>
+        <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
           <i class='fa-solid fa-forward-step fa-2xl'></i>
         </a>
         <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
@@ -106,7 +106,7 @@ if (isset($search_value)) {
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
-        <a id='next-step-button-" . $row['id'] . "' class='button' data-open='next_step_window' data-value='" . $row['step'] . "'>
+        <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
           <i class='fa-solid fa-forward-step fa-2xl'></i>
         </a>
         <a href='edit_button.php?id=" . $row['id'] . "' class='button'>

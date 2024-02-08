@@ -20,14 +20,6 @@
     </button>
 </div>
 
-<div class="reveal" id="next_step_window" data-reveal>
-    <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post">
-        <div class="cell auto" id="next_step">
-            
-        </div>
-    </form>
-    <br>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
+<div class="reveal" id="next_step" data-reveal>
+    
 </div>
