@@ -6,8 +6,7 @@
     <div class="grid-container">
         <div class="grid-y" style="background-image: url(includes/trybg.png);">
             <h1>
-                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img
-                        src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
+                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
             </h1>
         </div>
         <div class="container-banner banner-pads">
@@ -31,12 +30,16 @@
                             User Reports
                         </a>
                     </li>
+                    <li>
+                        <a id="edit_bill_button" data-open="edit_bill">
+                            Edit Bill
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><input name='tracking_number_search' id="tracking_number_search" type="search"
-                            placeholder="Tracking Number"></li>
+                    <li><input name='tracking_number_search' id="tracking_number_search" type="search" placeholder="Name / Tracking Number"></li>
                 </ul>
             </div>
         </div>
@@ -79,6 +82,9 @@
                                         </td>
                                         <td>
                                             <?php echo $row['step']; ?>
+                                            <a id='step-button-<?php echo $row['id']; ?>' data-open='step_details_window' data-value='<?php echo $row['step']; ?>'>
+                                                <i class='fa-solid fa-circle-info fa-2xl'></i>
+                                            </a>
                                         </td>
                                         <td>
                                             <?php echo $row['time_updated']; ?>
@@ -120,19 +126,7 @@
                 </div>
             </div>
         </div>
-        <div class="reveal" id="add_button" data-reveal>
-            <form action="add_customer.php"" method="post">
-                <h1 class="text-center">Add New Customer</h1>
-                <br>
-                <h3>Customer Details</h3>
-                <input type="text" name="customer_name" class="form-control" value="<?php echo $customer_name; ?>"
-                    placeholder="Customer Name" autofocus>
-                <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>"
-                    placeholder="Email Address" autofocus>
-                <button class="submit success button" name='add_customer'>Save</button>
-                <a class='button' data-close aria-label="Close modal">Go Back</a>
-            </form>
-        </div>
+        <?php include("reveal.php") ?>
     </div>
 </body>
 
