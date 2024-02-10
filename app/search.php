@@ -5,11 +5,11 @@ $search_value = $_POST['search'];
 
 if (isset($search_value)) {
   if (is_string($search_value)) {
-    $sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16";
+    $all_sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16";
   }
 
-  $sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
-  $result = mysqli_query($conn, $sql);
+  $all_sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
+  $result = mysqli_query($conn, $all_sql);
 
 
   if (mysqli_num_rows($result) > 0) {
