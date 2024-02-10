@@ -6,7 +6,8 @@
     <div class="grid-container">
         <div class="grid-y" style="background-image: url(includes/trybg.png);">
             <h1>
-                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
+                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img
+                        src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
             </h1>
         </div>
         <div class="container-banner banner-pads">
@@ -17,7 +18,7 @@
             </div>
         </div>
         <br>
-        <div class="top-bar">
+        <div class="top-bar stacked-for-medium">
             <div class="top-bar-left">
                 <ul class="dropdown menu" data-dropdown-menu>
                     <li>
@@ -34,7 +35,8 @@
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><input name='tracking_number_search' id="tracking_number_search" type="search" placeholder="Name / Tracking Number"></li>
+                    <li><input name='tracking_number_search' id="tracking_number_search" type="search"
+                            placeholder="Name / Tracking Number"></li>
                 </ul>
             </div>
         </div>
@@ -48,7 +50,7 @@
                     $result = mysqli_query($conn, $query);
                     if (!mysqli_num_rows($result) == 0) { ?>
                         <h3>Phase 2 Line Inspection Complete Table</h3>
-                        <table class="responsive">
+                        <table class="table responsive stack">
                             <thead>
                                 <tr>
                                     <th>Tracking Number</th>
@@ -77,7 +79,8 @@
                                         </td>
                                         <td>
                                             <?php echo $row['step']; ?>
-                                            <a id='step-button-<?php echo $row['id']; ?>' data-open='step_details_window' data-value='<?php echo $row['step']; ?>'>
+                                            <a id='step-button-<?php echo $row['id']; ?>' data-open='step_details_window'
+                                                data-value='<?php echo $row['step']; ?>'>
                                                 <i class='fa-solid fa-circle-info fa-2xl'></i>
                                             </a>
                                         </td>
@@ -103,7 +106,7 @@
                         </table>
                     <?php } ?>
                     <h3>Main Table</h3>
-                    <table class="responsive">
+                    <table class="table responsive stack">
                         <thead>
                             <tr>
                                 <th>Tracking Number</th>

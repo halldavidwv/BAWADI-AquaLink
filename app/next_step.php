@@ -2,19 +2,9 @@
 
 include('db.php');
 
-if  (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $query = "SELECT * FROM water_installation WHERE id = $id";
-  $result = mysqli_query($conn, $query);
-  if (mysqli_num_rows($result) == 1) {
-    $row = mysqli_fetch_array($result);
-    $step = $row['step'];
-  }
-}
-
-  if (isset($_GET['id'])) {
+  if (isset($_POST['next_step_confirm'])) {
     $id = $_GET['id'];
-	$query = "SELECT * FROM water_installation WHERE id = $id";
+	  $query = "SELECT * FROM water_installation WHERE id = $id";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
       $row = mysqli_fetch_array($result);
@@ -56,6 +46,7 @@ if  (isset($_GET['id'])) {
     if (!$query) {
       die('Query Failed');
     } else {
+      $_SESSION['next_step_complete'] = "Next Step Process Complete";
       header('Location: index.php');
     }
   } else {

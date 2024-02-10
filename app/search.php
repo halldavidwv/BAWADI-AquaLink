@@ -5,11 +5,11 @@ $search_value = $_POST['search'];
 
 if (isset($search_value)) {
   if (is_string($search_value)) {
-    $sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16";
+    $all_sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16";
   }
 
-  $sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
-  $result = mysqli_query($conn, $sql);
+  $all_sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
+  $result = mysqli_query($conn, $all_sql);
 
 
   if (mysqli_num_rows($result) > 0) {
@@ -49,7 +49,7 @@ if (isset($search_value)) {
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
-        <a href='next_step.php?id=" . $row['id'] . "' class='button'>
+        <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
           <i class='fa-solid fa-forward-step fa-2xl'></i>
         </a>
         <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
@@ -106,7 +106,7 @@ if (isset($search_value)) {
         echo "<td>" . $row['time_updated'] . "</td>";
         echo "<td>
       <div class='tiny button-group align-center-middle'>
-        <a href='next_step.php?id=" . $row['id'] . "' class='button'>
+        <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
           <i class='fa-solid fa-forward-step fa-2xl'></i>
         </a>
         <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
