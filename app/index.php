@@ -45,66 +45,22 @@
             <div class="grid-x grid-margin-x" id="content">
                 <br>
                 <div class="cell auto">
-                    <?php
-                    $query = "SELECT * FROM water_installation where step = 'Phase-2-Step-4-Complete'";
-                    $result = mysqli_query($conn, $query);
-                    if (!mysqli_num_rows($result) == 0) { ?>
-                        <h3>Phase 2 Line Inspection Complete Table</h3>
-                        <table class="table responsive stack">
-                            <thead>
-                                <tr>
-                                    <th>Tracking Number</th>
-                                    <th>Customer Name</th>
-                                    <th>Email Address</th>
-                                    <th>Step/Progress</th>
-                                    <th>Date Updated</th>
-                                    <th>Action</th>
-                                </tr>
+                    <h3>Phase 2 Line Inspection Complete Table</h3>
+                    <table class="table responsive stack">
+                        <thead id="phase-2-step-4-complete-header">
+                            <tr>
+                                <th>Tracking Number</th>
+                                <th>Customer Name</th>
+                                <th>Email Address</th>
+                                <th>Step/Progress</th>
+                                <th>Date Updated</th>
+                                <th>Action</th>
+                            </tr>
                             </thead>
-                            <tbody>
-                                <?php
-                                $query = "SELECT * FROM water_installation where step = 'Phase-2-Step-4-Complete'";
-                                $result_tasks = mysqli_query($conn, $query);
+                            <tbody id="phase-2-step-4-complete-table">
 
-                                while ($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                    <tr id="phase-2-step-4-table">
-                                        <td>
-                                            <?php echo $row['tracking_number']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['customer_name']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['email_address']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['step']; ?>
-                                            <a id='step-button-<?php echo $row['id']; ?>' data-open='step_details_window'
-                                                data-value='<?php echo $row['step']; ?>'>
-                                                <i class='fa-solid fa-circle-info fa-2xl'></i>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['time_updated']; ?>
-                                        </td>
-                                        <td>
-                                            <div class="tiny button-group align-center-middle">
-                                                <a href="edit_button.php?id=<?php echo $row['id'] ?>" class="button">
-                                                    <i class="fa-regular fa-pen-to-square fa-2xl"></i>
-                                                </a>
-                                                <a href="delete.php?id=<?php echo $row['id'] ?>" class="button">
-                                                    <i class="fa-solid fa-trash fa-2xl"></i>
-                                                </a>
-                                                <a href="send_email.php?id=<?php echo $row['id'] ?>" class="button">
-                                                    <i class="fa-solid fa-envelope fa-2xl"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
                             </tbody>
                         </table>
-                    <?php } ?>
                     <h3>Main Table</h3>
                     <table class="table responsive stack">
                         <thead>
