@@ -45,22 +45,9 @@
             <div class="grid-x grid-margin-x" id="content">
                 <br>
                 <div class="cell auto">
-                    <h3>Phase 2 Line Inspection Complete Table</h3>
-                    <table class="table responsive stack">
-                        <thead id="phase-2-step-4-complete-header">
-                            <tr>
-                                <th>Tracking Number</th>
-                                <th>Customer Name</th>
-                                <th>Email Address</th>
-                                <th>Step/Progress</th>
-                                <th>Date Updated</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody id="phase-2-step-4-complete-table">
+                    <table class="table responsive stack" id="phase-2-step-4-complete-table">
 
-                            </tbody>
-                        </table>
+                    </table>
                     <h3>Main Table</h3>
                     <table class="table responsive stack">
                         <thead>
