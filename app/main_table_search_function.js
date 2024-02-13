@@ -27,11 +27,14 @@ $(document).ready(function () {
       });
     }
 
-    //searchContent("main_table_search.php", search, "main-table");
+    searchContent("main_table_search.php", search, "main-table");
     searchContent("phase_2_step_4_complete_search.php", search, "phase-2-step-4-complete-table");
 
-    //updateContent("main_table_search.php", "main-table");
+    updateContent("main_table_search.php", "main-table");
     updateContent("phase_2_step_4_complete_search.php", "phase-2-step-4-complete-table");
 
   });
+
+  $("#tracking_number_search").trigger('keyup');
+
 });
