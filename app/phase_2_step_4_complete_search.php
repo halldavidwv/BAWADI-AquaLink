@@ -2,26 +2,27 @@
 include("db.php");
 
 // Get the search value from the search box
-$search_value = $_POST['search'];
+$search_value = $_POST['searchData'];
 
 // When there's a value in the search box
 if (isset($search_value)) {
     // If the search value is a string for searching Customer Names
     if (is_string($search_value)) {
-        $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete', customer_name LIKE '%$search_value%' LIMIT 16";
+      $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete' AND customer_name LIKE '%$search_value%' LIMIT 16";
+    // If the search values is numeric for the searching tracking number.
+    } if (is_numeric($search_value)) {
+      $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete' AND tracking_number LIKE '%$search_value%' LIMIT 8";
     }
-
-    // Query for the needed values for the table.
-    $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete', customer_name LIKE '%$search_value%' LIMIT 8";
 
     // Sending the query to the database using MySQLi
     $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
 
     // The output for the Main Table 
-    if (mysqli_num_rows($phase_2_step_4_complete_result) > 0) {
+    if (!empty($phase_2_step_4_complete_result)) {
         while ($row = mysqli_fetch_assoc($phase_2_step_4_complete_result)) {
         // Output for Phase 2 Step 4 Complete Table
-        echo "<thead>";
+        echo '<h3>Phase 2 Step 4 Complete Table</h3>';
+        echo '<table class="table responsive stack"><thead>';
         echo "<tr>
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
@@ -32,7 +33,6 @@ if (isset($search_value)) {
               </tr>
             </thead>
         ";
-        echo "";
         echo "<tr>";
         echo "<td>" 
                 . $row['tracking_number'] . 
@@ -54,6 +54,9 @@ if (isset($search_value)) {
              "</td>";
         echo "<td>
                 <div class='tiny button-group align-center-middle'>
+                  <a id='email-window-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-open='email_window' data-id='". $row['id'] . "'>
+                    <i class='fa-solid fa-envelope fa-2xl'></i>
+                  </a>
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>
@@ -65,7 +68,8 @@ if (isset($search_value)) {
                   </a>
                 </div>
               </td>
-            </tr>";
+            </tr>
+          </table>";
         }
     }
     // The output of all the data if there's no value in search box
@@ -74,10 +78,10 @@ if (isset($search_value)) {
 
     $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
 
-    if (mysqli_num_rows($phase_2_step_4_complete_result) > 0) {
+    if (!empty($phase_2_step_4_complete_result)) {
         while ($row = mysqli_fetch_assoc($phase_2_step_4_complete_result)) {
-          echo "<h3>Phase 2 Step 4 Complete Table</h3>";
-        echo "<thead>";
+        echo '<h3>Phase 2 Step 4 Complete Table</h3>';
+        echo '<table class="table responsive stack"><thead>';
         echo "<tr>
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
@@ -85,9 +89,8 @@ if (isset($search_value)) {
                 <th>Step/Progress</th>
                 <th>Date Updated</th>
                 <th>Action</th>
-              </tr>
+              </tr></thead>
         ";
-        echo "";
         echo "<tr>";
         echo "<td>" 
                 . $row['tracking_number'] . 
@@ -109,6 +112,9 @@ if (isset($search_value)) {
              "</td>";
         echo "<td>
                 <div class='tiny button-group align-center-middle'>
+                  <a id='email-window-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-open='email_window' data-id='". $row['id'] . "'>
+                    <i class='fa-solid fa-envelope fa-2xl'></i>
+                  </a>
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>
@@ -120,7 +126,8 @@ if (isset($search_value)) {
                   </a>
                 </div>
               </td>
-            </tr>";
+            </tr>
+          </table>";
         }
     }
 }

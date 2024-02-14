@@ -22,6 +22,25 @@
     </div>
 
     <div class="reveal" id="next_step" data-reveal>
-        
+
     </div>
+
+    <div class="reveal" id="email_window" data-reveal>
+        <form action="initiate_email.php?id=<?php echo $_GET['id']; ?>" method="post">
+            <div class="text-center">
+                <h1>Message Customer</h1>
+                <br>
+                <label for="email_subject">
+                    <input type="text" name="email_subject" id="email_subject" placeholder="Email Subject">
+                </label>
+                <label for="email_content">
+                    <textarea name="email_content" id="email_content" placeholder="Email Content" cols="70"
+                        rows="10"></textarea>
+                </label>
+                <button class="submit success button" name='update' value='update'>Send</button>
+                <a data-close aria-label="Close modal" class='button'>Go Back</a>
+            </div>
+        </form>
+    </div>
+
 </div>

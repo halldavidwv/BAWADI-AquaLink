@@ -45,16 +45,9 @@
             <div class="grid-x grid-margin-x" id="content">
                 <br>
                 <div class="cell auto">
-                    <?php 
-                        $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete'";
-                        $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
-                        if (mysqli_num_rows($phase_2_step_4_complete_result) > 0) {
-                            echo "<h3>Phase 2 Step 4 Complete Table</h3>";
-                        }
-                    ?>
-                    <table class="table responsive stack" id="phase-2-step-4-complete-table">
+                    <div id="phase-2-step-4-complete-table">
 
-                    </table>
+                    </div>
                     <h3>Main Table</h3>
                     <table class="table responsive stack">
                         <thead>

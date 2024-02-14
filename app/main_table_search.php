@@ -2,23 +2,23 @@
 include("db.php");
 
 // Get the search value from the search box
-$search_value = $_POST['search'];
+$search_value = $_POST['searchData'];
 
 // When there's a value in the search box
 if (isset($search_value)) {
   // If the search value is a string for searching Customer Names
   if (is_string($search_value)) {
     $all_sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16";
+  // If the search values is numeric for the searching tracking number.
+  } if (is_numeric($search_value)) {
+    $all_sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
   }
-
-  // Query for the needed values for the table.
-  $all_sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
 
   // Sending the query to the database using MySQLi
   $all_result = mysqli_query($conn, $all_sql);
 
   // The output for the Main Table 
-  if (mysqli_num_rows($all_result) > 0) {
+  if (!empty($all_result)) {
     while ($row = mysqli_fetch_assoc($all_result)) {
       // Output for the Complete Step
       if ($row['step'] == "Complete") {
@@ -91,12 +91,10 @@ if (isset($search_value)) {
   // The output of all the data if there's no value in search box
 } else {
   $all_sql = "SELECT * FROM water_installation";
-  $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete'";
 
   $all_result = mysqli_query($conn, $all_sql);
-  $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
 
-  if (mysqli_num_rows($all_result) > 0) {
+  if (!empty($all_result)) {
     while ($row = mysqli_fetch_assoc($all_result)) {
       if ($row['step'] == "Complete") {
         echo "<tr>";
