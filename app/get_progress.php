@@ -1,5 +1,21 @@
 <?php
 include("db.php");
+require 'vendor/autoload.php';
+
+use Carbon\Carbon;
+
+function getTime ($timestamp, $add_days) {
+    $deadline_date_minimum = Carbon::parse($timestamp);
+    $deadline_date_maximum = Carbon::parse($timestamp);
+    
+    $deadline_date_minimum->addDays($add_days);
+    $deadline_date_maximum->addDays($add_days + 10);
+
+    $deadline_day_minimum = date_format($deadline_date_minimum, 'm/d/Y');
+    $deadline_day_maximum = date_format($deadline_date_minimum, 'm/d/Y');
+
+    echo $deadline_day_minimum . " - " . $deadline_day_maximum;
+}
 
 if (isset($_GET['tracking_number'])) {
     $tracking_number = $_GET['tracking_number'];
@@ -21,8 +37,10 @@ if (isset($_GET['tracking_number'])) {
         echo "<br>";
         switch ($step) {
             case 'Phase-2-Step-1':
+                $phase_2_step_1_expected_days = 2;
                 echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
                 echo "<p><i>Conduct inspection and advise/inform the applicant the standards in the proper lay-out of service line from tapping point to residence.</i></p>";
+                echo "<text><b>Expect Day to Finish:</b>" . getTime($time_updated, $phase_2_step_1_expected_days) . "</text><br>" ;
                 break;
             case 'Phase-2-Step-2':
                 echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
