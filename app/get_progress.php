@@ -4,7 +4,8 @@ require 'vendor/autoload.php';
 
 use Carbon\Carbon;
 
-function getTime ($timestamp, $add_days) {
+// Function for expected time, by parsing the timestamp from the query, then add the expected days variable inside the step, and format it using date_format to proper data format for easier readability
+function expected_time ($timestamp, $add_days) {
     $deadline_date_minimum = Carbon::parse($timestamp);
     $deadline_date_maximum = Carbon::parse($timestamp);
     
@@ -38,43 +39,68 @@ if (isset($_GET['tracking_number'])) {
         echo "<br>";
         switch ($step) {
             case 'Phase-2-Step-1':
-                $phase_2_step_1_expected_days = 2;
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                $expected_days = 1;
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Conduct inspection and advise/inform the applicant the standards in the proper lay-out of service line from tapping point to residence.</i></p>";
                 echo "<text><b>Expect Day to Finish:</b></text><br>" ;
-                echo "<text><b>" . getTime($time_updated, $phase_2_step_1_expected_days) . "</><br>";
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-2-Step-2':
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Please comply with all the requirements and remarks indicated therein.</i></p>";
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>Depends on Customer-Applicant Schedule</text><br>";
                 break;
             case 'Phase-2-Step-3':
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                $expected_days = 1;
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Validating service line lay-out. Expect new process after business day</i></p>";
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-2-Step-4-Incomplete':
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
+                $expected_days = 1;
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Inspecting service line laid out. Please wait for an email.</i></p>";
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-2-Step-4-Complete':
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</text>";
-                echo "<p><i>Service line approved.</i></p>";
+                $expected_days = 1;
+                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
+                echo "<p><i>Service line approved. Please wait for the updated step</i></p>";
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-3-Step-1':
-                echo "<text><b>Step: </b>Phase 3: Payment of Fees</text>";
+                $expected_days = 1;
+                echo "<text><b>Step: </b>Phase 3: Payment of Fees</b></text>";
                 echo "<p><i>Please go to the Tellers' Booth to sign the contract for Water Services and pay the corresponding water connection fees. Click the View Bill button for Bill Details.</i></p>";
-                echo '<a class="button" data-open="installation_bill_window">View Bill</a>';
-                echo "<br>";
+                echo '<a class="button" data-open="installation_bill_window">View Bill</a><br>';
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-4-Step-1':
+                $expected_days = 9;
                 echo "<text><b>Step: </b>Phase 4: Installation</text>";
-                echo "<p><i>The service connection installation is ongoing. Expect completion until 7-15 working days.</i></p>";
-                break;    
+                echo "<p><i>The service connection installation is ongoing. Expect completion until 7 working days.</i></p>";
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
+                break;
+            case 'Phase-4-Step-1-Proposed-Tapping':
+                $expected_days = 17;
+                echo "<text><b>Step: </b>Phase 4: Installation</text>";
+                echo "<p><i>The service connection installation is ongoing. Expect completion until 15 working days.</i></p>";
+                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
+                break;      
             case 'Complete':
-                echo "<text><b>Step: </b>Water Installation Complete</text>";
+                echo "<text><b>Step: </b>Water Installation Complete</b></text>";
                 echo "<br>";
                 break;
         }
-        echo "<text><b>Time Updated:</b> $time_updated</text>";
+        
+        // Carbon is used to parse the TIMESTAMP from the query and format it to a proper date format for easier readability.
+        echo "<text><b>Time Updated: </b>" . date_format(Carbon::parse($time_updated), 'F d, Y') . "</text>";
     }
 }
