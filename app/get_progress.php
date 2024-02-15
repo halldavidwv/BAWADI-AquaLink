@@ -101,6 +101,6 @@ if (isset($_GET['tracking_number'])) {
         }
         
         // Carbon is used to parse the TIMESTAMP from the query and format it to a proper date format for easier readability.
-        echo "<text><b>Time Updated: </b>" . date_format(Carbon::parse($time_updated), 'F d, Y') . "</text>";
+        echo "<text><b>Day Updated: </b>" . date_format(Carbon::parse($time_updated), 'F d, Y') . "</text>";
     }
 }
