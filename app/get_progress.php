@@ -80,7 +80,7 @@ if (isset($_GET['tracking_number'])) {
                 echo "<text><b>Expect Day to Finish:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
-            case 'Phase-4-Step-1':
+            case 'Phase-4-Step-1-Existing-Tapping':
                 $expected_days = 9;
                 echo "<text><b>Step: </b>Phase 4: Installation</text>";
                 echo "<p><i>The service connection installation is ongoing. Expect completion until 7 working days.</i></p>";
