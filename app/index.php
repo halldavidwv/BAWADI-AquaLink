@@ -26,11 +26,6 @@
                             Add New Customer
                         </a>
                     </li>
-                    <li>
-                        <a href="user_reports.php">
-                            User Reports
-                        </a>
-                    </li>
                 </ul>
             </div>
             <div class="top-bar-right">

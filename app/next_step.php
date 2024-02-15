@@ -2,8 +2,13 @@
 
 include('db.php');
 
+require ('vendor/autoload.php');
+
+use Carbon\Carbon;
+
   if (isset($_POST['next_step_confirm'])) {
     $id = $_GET['id'];
+    $tapping_point = $_POST['tapping-point'];
 	  $query = "SELECT * FROM water_installation WHERE id = $id";
     $result = mysqli_query($conn, $query);
     if (mysqli_num_rows($result) == 1) {
@@ -29,9 +34,19 @@ include('db.php');
             $next_step = "Phase-3-Step-1";
             break;
         case "Phase-3-Step-1":
-            $next_step = "Phase-4-Step-1";
+          switch($tapping_point) {
+            case "existing-tapping-point":
+              $next_step = "Phase-4-Step-1-Existing-Tapping";
+              break;
+            case "proposed-tapping-point":
+              $next_step = "Phase-4-Step-1-Proposed-Tapping";
+              break;
+          }
+          break;
+        case "Phase-4-Step-1-Existing-Tapping":
+            $next_step = "Complete";
             break;
-        case "Phase-4-Step-1":
+        case "Phase-4-Step-1-Proposed-Tapping":
             $next_step = "Complete";
             break;
         default:
@@ -40,7 +55,8 @@ include('db.php');
         
     }
 
-    $result = "UPDATE water_installation SET step = '$next_step' WHERE id = $id";
+    $current_timestamp = Carbon::now();
+    $result = "UPDATE water_installation SET step = '$next_step', time_updated = '$current_timestamp' WHERE id = $id";
     $query = mysqli_query($conn, $result);
 
     if (!$query) {

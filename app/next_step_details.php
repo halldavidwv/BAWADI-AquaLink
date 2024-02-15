@@ -84,7 +84,12 @@ if(isset($step_value)) {
             echo '<br>';
             echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
-            echo '<legend>Please mark the checkbox in order to proceed</legend>';
+            echo '<legend>Please mark the checkbox and choose the tapping point that was proposed in the service line inspection in order to proceed</legend>';
+            echo '<label for="phase-4-step-1-checkbox-1">Tapping Point</label>';
+            echo '<select name="tapping-point" id="tapping-point" value="existing-tapping-point"">
+                    <option value="existing-tapping-point">Existing Tapping Point</option>
+                    <option value="proposed-tapping-point">Proposed Tapping Point</option>
+                </select>';
             echo '<label for="phase-3-step-1-checkbox-1">
                     <input id="prerequisite-checkbox-7" type="checkbox">
                     <b>The applicant has signed the Contract for Water Services and Pays the corresponding water connection fees.</b>
@@ -97,7 +102,20 @@ if(isset($step_value)) {
             echo '<button class="submit success button" id="next_step_confirm" name="next_step_confirm" value="next_step_confirm" disabled>Confirm</button></div>';
             echo '<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true">&times;</span></button></form>';
             break;
-        case 'Phase-4-Step-1':
+        case 'Phase-4-Step-1-Existing-Tapping':
+            echo '<br>';
+            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
+            echo '<legend>Please mark the checkbox in order to proceed</legend>';
+            echo '<label for="phase-4-step-1-checkbox-1">
+                    <input id="prerequisite-checkbox-9" type="checkbox">
+                    <b>The agency installed the water service connection of the applicant.</b>
+                </label><br>';
+            echo '<div class="button-group">';
+            echo '<button class="submit success button" id="next_step_confirm" name="next_step_confirm" value="next_step_confirm" disabled>Confirm</button></div>';
+            echo '<button class="close-button" data-close aria-label="Close modal" type="button"><span aria-hidden="true">&times;</span></button></form>';
+            break;
+        case 'Phase-4-Step-1-Proposed-Tapping':
             echo '<br>';
             echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
