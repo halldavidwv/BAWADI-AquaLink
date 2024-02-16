@@ -17,13 +17,9 @@ if (isset($search_value)) {
     // Sending the query to the database using MySQLi
     $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
 
-    // The output for the Main Table 
+    // The output for the Phase 2 Step 4 Complete Table when search value is not empty 
     if (!empty($phase_2_step_4_complete_result)) {
-        while ($row = mysqli_fetch_assoc($phase_2_step_4_complete_result)) {
-        // Output for Phase 2 Step 4 Complete Table
-        echo '<h3>Phase 2 Step 4 Complete Table</h3>';
-        echo '<table class="table responsive stack"><thead>';
-        echo "<tr>
+        echo "<thead><tr>
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
                 <th>Email Address</th>
@@ -31,9 +27,9 @@ if (isset($search_value)) {
                 <th>Date Updated</th>
                 <th>Action</th>
               </tr>
-            </thead>
-        ";
-        echo "<tr>";
+            </thead>";
+        while ($row = mysqli_fetch_assoc($phase_2_step_4_complete_result)) {
+        echo "<tbody><tr>";
         echo "<td>" 
                 . $row['tracking_number'] . 
             "</td>";
@@ -69,29 +65,27 @@ if (isset($search_value)) {
                 </div>
               </td>
             </tr>
-          </table>";
+         </tbody>";
         }
     }
-    // The output of all the data if there's no value in search box
+    // The output of all the data from Phase 2 Step 4 Complete if there's no value in search box
 } else {
     $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete'";
 
     $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
 
     if (!empty($phase_2_step_4_complete_result)) {
-        while ($row = mysqli_fetch_assoc($phase_2_step_4_complete_result)) {
-        echo '<h3>Phase 2 Step 4 Complete Table</h3>';
-        echo '<table class="table responsive stack"><thead>';
+        echo '<thead>';
         echo "<tr>
-                <th>Tracking Number</th>
-                <th>Customer Name</th>
-                <th>Email Address</th>
-                <th>Step/Progress</th>
-                <th>Date Updated</th>
-                <th>Action</th>
-              </tr></thead>
-        ";
-        echo "<tr>";
+              <th>Tracking Number</th>
+              <th>Customer Name</th>
+              <th>Email Address</th>
+              <th>Step/Progress</th>
+              <th>Date Updated</th>
+              <th>Action</th>
+            </tr></thead>";
+        while ($row = mysqli_fetch_assoc($phase_2_step_4_complete_result)) {
+        echo "<tbody><tr>";
         echo "<td>" 
                 . $row['tracking_number'] . 
             "</td>";
@@ -127,7 +121,7 @@ if (isset($search_value)) {
                 </div>
               </td>
             </tr>
-          </table>";
+          </tbody>";
         }
     }
 }
