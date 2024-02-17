@@ -45,14 +45,21 @@ $(document).ready(function () {
         );
         $('#step_details').append('<p class="lead">Duration: <b>1 Working Day</b></p>');
         break;
-      case 'Phase-4-Step-1':
+      case 'Phase-4-Step-1-Existing-Tapping':
         $('#step_details').append('<h3>Phase 4: Installation - Step 1</h3>');
         $('#step_details').append(
           '<p class="lead">Applicant acknowledges the service connection installation</p>'
         );
         $('#step_details').append('<p class="lead">Duration: </p>');
-        $('#step_details').append('<p class="lead"><b>7 Working Days after Payment</b><i>(With Existing Tapping Point)</i></p>');
-        $('#step_details').append('<p class="lead"><b>15 Working Days after Payment</b><i>(With Proposed Tapping Point)</i></p>');
+        $('#step_details').append('<p class="lead"><b>7 Working Days after Payment</b></p>');
+        break;
+      case 'Phase-4-Step-1-Proposed-Tapping':
+        $('#step_details').append('<h3>Phase 4: Installation - Step 1</h3>');
+        $('#step_details').append(
+          '<p class="lead">Applicant acknowledges the service connection installation</p>'
+        );
+        $('#step_details').append('<p class="lead">Duration: </p>');
+        $('#step_details').append('<p class="lead"><b>15 Working Days after Payment</b></p>');
         break;
       case 'Complete':
         $('#step_details').append('<h3>Water Installation Complete</h3>');
