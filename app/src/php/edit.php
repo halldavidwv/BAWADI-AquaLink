@@ -1,11 +1,12 @@
 <?php
 
-include('db.php');
+include('connect_database.php');
 
 if  (isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "SELECT * FROM water_installation WHERE id = $id";
-  $result = mysqli_query($conn, $query);
+  $sql = $conn->prepare("SELECT * FROM water_installation WHERE id = ?");
+  $sql->bind_param("i", $id);
+  $sql->execute();
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
     $customer_name = $row['customer_name'];

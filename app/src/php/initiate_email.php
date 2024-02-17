@@ -7,7 +7,7 @@ $email_subject = $_POST['email_subject'];
 $email_content = $_POST['email_content'];
 
 if(isset($_GET['id'])) {
-    include("db.php");
+    include("connect_database.php");
     $id = $_GET['id'];
     $query = "SELECT * FROM water_installation WHERE id = $id";
     $result = mysqli_query($conn, $query);

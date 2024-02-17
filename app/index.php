@@ -1,4 +1,4 @@
-<?php include("db.php"); ?>
+<?php include("src/php/connect_database.php"); ?>
 
 <?php include("includes/header.php"); ?>
 
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <?php include("reveal.php") ?>
+        <?php include("src/php/reveal.php") ?>
     </div>
 </body>
 

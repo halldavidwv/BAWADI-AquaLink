@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("connect_database.php");
 
 // Get the search value from the search box
 $search_value = $_POST['searchData'];

@@ -7,14 +7,12 @@
   </title>
   <link rel="dns-prefetch" href="//fonts.googleapis.com" />
   <link rel="dns-prefetch" href="//ajax.googleapis.com" />
-  <link rel="stylesheet" id='fa-v6' href="includes/all.min.css" />
-  <link rel="stylesheet" id='responsive-tables' href="includes/responsive-tables.css" />
-  <link rel="stylesheet" id="gwt_wp-foundation-min-css" href="includes/foundation.min.css" type="text/css"
+  <link rel="stylesheet" id='fa-v6' href="includes/font-awesome/all.min.css" />
+  <link rel="stylesheet" id="gwt_wp-foundation-min-css" href="includes/foundation/foundation.min.css" type="text/css"
     media="all" />
-  <link rel="stylesheet" id="gwt_wp-foundation-css" href="includes/foundation.css" type="text/css" media="all" />
+  <link rel="stylesheet" id="gwt_wp-foundation-css" href="includes/foundation/foundation.css" type="text/css" media="all" />
   <link rel="stylesheet" id="gwt_wp-motion-ui-css" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" type="text/css" media="all" /> 
   <link rel="stylesheet" id="gwt_wp-style-css" href="includes/theme.css" type="text/css" media="all" />
-  <link rel="stylesheet" href="includes/custom.css">
-  <script src="includes/jquery-3.7.1.js"></script>
-  <script src="includes/all.min.js"></script>
+  <script src="includes/jquery/jquery-3.7.1.js"></script>
+  <script src="includes/font-awesome/all.min.js"></script>
 </head>

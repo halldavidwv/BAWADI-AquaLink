@@ -1,6 +1,6 @@
 <div class="grid-x grid-padding-x">
     <div class="reveal" id="add_button" data-reveal>
-        <form action="add_customer.php" method="post">
+        <form action="src/php/add_customer.php" method="post">
             <h1 class="text-center">Add New Customer</h1>
             <br>
             <h3>Customer Details</h3>

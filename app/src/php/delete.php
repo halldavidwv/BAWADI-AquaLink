@@ -1,14 +1,15 @@
 <?php
-include("db.php");
+include("connect_database.php");
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM water_installation WHERE id = $id";
-    $query = mysqli_query($conn, $sql);
+    $sql = $conn->prepare("DELETE FROM water_installation WHERE id = ?");
+    $sql->bind_param('i', $id);
+    $sql->execute();
 
-    if ($query) {
-        header('Location: index.php');
+    if ($sql) {
+        header('Location: ../../index.php');
     } else
         header('refresh:3;url:http://localhost/index.php');
         echo('Wrong ID!');

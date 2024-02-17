@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('connect_database.php');
 
 $step_value = $_POST['stepValue'];
 $step_id = $_POST['stepID'];

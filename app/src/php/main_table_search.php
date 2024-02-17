@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("connect_database.php");
 
 // Get the search value from the search box
 $search_value = $_POST['searchData'];
@@ -43,10 +43,10 @@ if (isset($search_value)) {
              "</td>";
         echo "<td>
                 <div class='tiny button-group align-center-middle'>
-                  <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/edit_button.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-regular fa-pen-to-square fa-2xl'></i>
                   </a>
-                  <a href='delete.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/delete.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-solid fa-trash fa-2xl'></i>
                   </a>
                 </div>
@@ -76,10 +76,10 @@ if (isset($search_value)) {
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>
-                  <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/edit_button.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-regular fa-pen-to-square fa-2xl'></i>
                   </a>
-                  <a href='delete.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/delete.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-solid fa-trash fa-2xl'></i>
                   </a>
                 </div>
@@ -118,10 +118,10 @@ if (isset($search_value)) {
              "</td>";
         echo "<td>
                 <div class='tiny button-group align-center-middle'>
-                  <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/edit_button.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-regular fa-pen-to-square fa-2xl'></i>
                   </a>
-                  <a href='delete.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/delete.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-solid fa-trash fa-2xl'></i>
                   </a>
                 </div>
@@ -151,10 +151,10 @@ if (isset($search_value)) {
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>
-                  <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/edit_button.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-regular fa-pen-to-square fa-2xl'></i>
                   </a>
-                  <a href='delete.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/delete.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-solid fa-trash fa-2xl'></i>
                   </a>
                 </div>

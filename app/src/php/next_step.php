@@ -1,6 +1,6 @@
 <?php
 
-include('db.php');
+include('connect_database.php');
 
 require ('vendor/autoload.php');
 
