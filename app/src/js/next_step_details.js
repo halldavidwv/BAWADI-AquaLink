@@ -6,7 +6,7 @@ $(document).ready(function () {
       console.log(stepValue);
       console.log(stepID);
       $.ajax ({
-        url: 'next_step_details.php',
+        url: 'src/php/next_step_details.php',
         method: 'POST',
         data: {
           stepValue:stepValue,

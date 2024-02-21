@@ -8,14 +8,15 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
   // If the search value is a string for searching Customer Names
   if (is_string($search_value)) {
-    $all_sql = "SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16";
+    $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16");
   // If the search values is numeric for the searching tracking number.
   } if (is_numeric($search_value)) {
-    $all_sql = "SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8";
+    $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8");
   }
 
+  $all_sql->execute();
   // Sending the query to the database using MySQLi
-  $all_result = mysqli_query($conn, $all_sql);
+  $all_result = $all_sql->get_result();;
 
   // The output for the Main Table 
   if (!empty($all_result)) {
@@ -90,9 +91,10 @@ if (isset($search_value)) {
   }
   // The output of all the data if there's no value in search box
 } else {
-  $all_sql = "SELECT * FROM water_installation";
+  $all_sql = $conn->prepare("SELECT * FROM water_installation");
+  $all_sql->execute();
 
-  $all_result = mysqli_query($conn, $all_sql);
+  $all_result = $all_sql->get_result();
 
   if (!empty($all_result)) {
     while ($row = mysqli_fetch_assoc($all_result)) {

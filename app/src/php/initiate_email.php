@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -9,8 +9,11 @@ $email_content = $_POST['email_content'];
 if(isset($_GET['id'])) {
     include("connect_database.php");
     $id = $_GET['id'];
-    $query = "SELECT * FROM water_installation WHERE id = $id";
-    $result = mysqli_query($conn, $query);
+    $query = $conn->prepare("SELECT * FROM water_installation WHERE id = $id");
+    $query->bind_param('i', $id);
+    $query->execute();
+
+    $result = $query->get_result();
 
     $row = mysqli_fetch_assoc($result);
     $customer_name = $row['customer_name'];
@@ -32,7 +35,7 @@ if(isset($_GET['id'])) {
     $mail->Body = $mailContent;
 
     if($mail->send()) {
-        header('Location: index.php?email=success');
+        header('Location: ../../index.php?email=success');
     } else {
         echo 'Message could not be sent.';
         echo 'Mailer Error: '.$mail->ErrorInfo;

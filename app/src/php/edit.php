@@ -7,6 +7,8 @@ if  (isset($_GET['id'])) {
   $sql = $conn->prepare("SELECT * FROM water_installation WHERE id = ?");
   $sql->bind_param("i", $id);
   $sql->execute();
+
+  $result = $sql->get_result();
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
     $customer_name = $row['customer_name'];
@@ -19,13 +21,14 @@ if  (isset($_GET['id'])) {
 	  $customer_name = $_POST['customer_name'];
     $email_address = $_POST['email_address'];
 
-    $result = "UPDATE water_installation SET customer_name = '$customer_name', email_address = '$email_address' WHERE id = $id";
-    $query = mysqli_query($conn, $result);
+    $result = $conn->prepare("UPDATE water_installation SET customer_name = ?, email_address = ? WHERE id = ?");
+    $result->bind_param('ssi', $customer_name, $email_address, $id);
+    $result->execute();
 
-    if (!$query) {
+    if (!$result) {
       die('Query Failed');
     } else {
-      header('Location: index.php');
+      header('Location: ../../index.php');
     }
   } else {
     die('Connection Failed!');

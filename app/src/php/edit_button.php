@@ -1,8 +1,8 @@
-<?php include('includes/header.php'); ?>
+<?php include('../../includes/php_header.php'); ?>
 
 <body>
     <div class="grid-container">
-        <div class="grid-y" style="background-image: url(includes/trybg.png);">
+        <div class="grid-y grid-margin-x" style="background-image: url(../../includes/trybg.png);">
             <h1>
                 <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
             </h1>
@@ -18,12 +18,15 @@
         </div>
         <br>
         <?php
-        include("db.php");
+        include("connect_database.php");
 
         $id = $_GET['id'];
 
-        $result = mysqli_query($conn, "SELECT * FROM water_installation WHERE id = $id");
+        $sql = $conn->prepare("SELECT * FROM water_installation WHERE id = ?");
+        $sql->bind_param('i', $id);
+        $sql->execute();
 
+        $result = $sql->get_result();
         $resultData = mysqli_fetch_assoc($result);
 
         $customer_name = $resultData['customer_name'];
@@ -43,7 +46,7 @@
                         <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
                         <div class="button-group align-center">
                             <button class="submit success button" name='update' value='update'>Save</button>
-                            <a href="index.php" class='button'>Go Back</a>
+                            <a href="../../index.php" class='button'>Go Back</a>
                         </div>
                     </div>
                 </form>

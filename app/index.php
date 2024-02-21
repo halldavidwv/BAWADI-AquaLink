@@ -1,6 +1,6 @@
 <?php include("src/php/connect_database.php"); ?>
 
-<?php include("includes/header.php"); ?>
+<?php include("includes/index_header.php"); ?>
 
 <body>
     <div class="grid-container">
@@ -71,4 +71,4 @@
     </div>
 </body>
 
-<?php include("includes/footer.php"); ?>
+<?php include("includes/index_footer.php"); ?>
