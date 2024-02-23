@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('connect_database.php');
 
 $step_value = $_POST['stepValue'];
 $step_id = $_POST['stepID'];
@@ -9,7 +9,7 @@ if(isset($step_value)) {
         case 'Phase-2-Step-1':
             echo '<br>';
             echo '<div class="cell auto">';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-2-step-1-checkbox-1">
@@ -22,7 +22,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-2-Step-2':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-2-step-2-checkbox-1">
@@ -39,7 +39,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-2-Step-3':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-2-step-3-checkbox-1">
@@ -56,7 +56,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-2-Step-4-Incomplete':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-2-step-4-incomplete-checkbox-1">
@@ -69,7 +69,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-2-Step-4-Complete':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-2-step-4-complete-checkbox-1">
@@ -82,7 +82,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-3-Step-1':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox and choose the tapping point that was proposed in the service line inspection in order to proceed</legend>';
             echo '<label for="phase-4-step-1-checkbox-1">Tapping Point</label>';
@@ -104,7 +104,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-4-Step-1-Existing-Tapping':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-4-step-1-checkbox-1">
@@ -117,7 +117,7 @@ if(isset($step_value)) {
             break;
         case 'Phase-4-Step-1-Proposed-Tapping':
             echo '<br>';
-            echo '<form action="next_step.php?id=' . $step_id . '" method="POST">';
+            echo '<form action="src/php/next_step.php?id=' . $step_id . '" method="POST">';
             echo '<p class="lead">The following prerequisites need to be done by the agency/applicant before proceeding:</p>';
             echo '<legend>Please mark the checkbox in order to proceed</legend>';
             echo '<label for="phase-4-step-1-checkbox-1">

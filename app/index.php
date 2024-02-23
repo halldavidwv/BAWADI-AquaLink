@@ -1,6 +1,6 @@
-<?php include("db.php"); ?>
+<?php include("src/php/connect_database.php"); ?>
 
-<?php include("includes/header.php"); ?>
+<?php include("includes/index_header.php"); ?>
 
 <body>
     <div class="grid-container">
@@ -67,8 +67,8 @@
                 </div>
             </div>
         </div>
-        <?php include("reveal.php") ?>
+        <?php include("src/php/reveal.php") ?>
     </div>
 </body>
 
-<?php include("includes/footer.php"); ?>
+<?php include("includes/index_footer.php"); ?>

@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "GET",
-            url: "get_progress.php",
+            url: "src/php/get_progress.php",
             data: {
                 tracking_number: getTrackingNumber
             },

@@ -1,6 +1,6 @@
 <?php
-include("db.php");
-require 'vendor/autoload.php';
+include("connect_database.php");
+require '../../vendor/autoload.php';
 
 use Carbon\Carbon;
 
@@ -21,8 +21,10 @@ function expected_time ($timestamp, $add_days) {
 
 if (isset($_GET['tracking_number'])) {
     $tracking_number = $_GET['tracking_number'];
-    $query = "SELECT * FROM water_installation WHERE tracking_number = $tracking_number";
-    $result = mysqli_query($conn, $query);
+    $query = $conn->prepare("SELECT customer_name, step, time_updated FROM water_installation WHERE tracking_number = ?");
+    $query->bind_param("i", $tracking_number);
+    $query->execute();
+    $result = $query->get_result(); 
 
     $row = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 0) {

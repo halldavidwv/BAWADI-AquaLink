@@ -15,8 +15,8 @@ $(document).ready(function () {
       });
     }
 
-    searchContent("main_table_search.php", search, "main-table");
-    searchContent("phase_2_step_4_complete_search.php", search, "phase-2-step-4-complete-table");
+    searchContent("src/php/main_table_search.php", search, "main-table");
+    searchContent("src/php/phase_2_step_4_complete_search.php", search, "phase-2-step-4-complete-table");
 
   });
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
   }
 
-  updateContent("main_table_search.php", "main-table");
-  updateContent("phase_2_step_4_complete_search.php", "phase-2-step-4-complete-table");
+  updateContent("src/php/main_table_search.php", "main-table");
+  updateContent("src/php/phase_2_step_4_complete_search.php", "phase-2-step-4-complete-table");
 
 });
