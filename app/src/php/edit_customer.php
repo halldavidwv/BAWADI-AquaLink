@@ -4,7 +4,7 @@ include('connect_database.php');
 
 if  (isset($_GET['id'])) {
   $id = $_GET['id'];
-  $sql = $conn->prepare("SELECT * FROM water_installation WHERE id = ?");
+  $sql = $conn->prepare("SELECT customer_name, step FROM water_installation WHERE id = ?");
   $sql->bind_param("i", $id);
   $sql->execute();
 

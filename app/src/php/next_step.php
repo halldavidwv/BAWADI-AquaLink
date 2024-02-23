@@ -9,7 +9,7 @@ use Carbon\Carbon;
   if (isset($_POST['next_step_confirm'])) {
     $id = $_GET['id'];
     $tapping_point = $_POST['tapping-point'];
-	  $query = $conn->prepare("SELECT * FROM water_installation WHERE id = ?");
+	  $query = $conn->prepare("SELECT step FROM water_installation WHERE id = ?");
     $query->bind_param('i', $id);
     $query->execute();
 

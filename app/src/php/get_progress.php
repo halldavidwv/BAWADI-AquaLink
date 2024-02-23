@@ -21,7 +21,7 @@ function expected_time ($timestamp, $add_days) {
 
 if (isset($_GET['tracking_number'])) {
     $tracking_number = $_GET['tracking_number'];
-    $query = $conn->prepare("SELECT * FROM water_installation WHERE tracking_number = ?");
+    $query = $conn->prepare("SELECT customer_name, step, time_updated FROM water_installation WHERE tracking_number = ?");
     $query->bind_param("i", $tracking_number);
     $query->execute();
     $result = $query->get_result(); 

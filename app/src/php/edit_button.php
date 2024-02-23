@@ -22,7 +22,7 @@
 
         $id = $_GET['id'];
 
-        $sql = $conn->prepare("SELECT * FROM water_installation WHERE id = ?");
+        $sql = $conn->prepare("SELECT customer_name, email_address, step FROM water_installation WHERE id = ?");
         $sql->bind_param('i', $id);
         $sql->execute();
 
@@ -36,7 +36,7 @@
 
         <div class="grid-x grid-margin-x align-center">
             <div class="cell small-6" id="input">
-                <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="post">
+                <form action="edit_customer.php?id=<?php echo $_GET['id']; ?>" method="post">
                     <div class="text-center">
                         <br>
                         <h1>Edit Customer</h1>

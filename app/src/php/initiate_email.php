@@ -9,7 +9,7 @@ $email_content = $_POST['email_content'];
 if(isset($_GET['id'])) {
     include("connect_database.php");
     $id = $_GET['id'];
-    $query = $conn->prepare("SELECT * FROM water_installation WHERE id = $id");
+    $query = $conn->prepare("SELECT customer_name, email_address FROM water_installation WHERE id = $id");
     $query->bind_param('i', $id);
     $query->execute();
 
