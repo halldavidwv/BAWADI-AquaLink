@@ -17,6 +17,7 @@ $(document).ready(function () {
 
     searchContent("src/php/main_table_search.php", search, "main-table");
     searchContent("src/php/phase_2_step_4_complete_search.php", search, "phase-2-step-4-complete-table");
+    searchContent("src/php/archive_table_search.php", search, "archive-table");
 
   });
 

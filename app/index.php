@@ -64,6 +64,15 @@
 
                         </tbody>
                     </table>
+                    <br>
+                    <?php 
+                        $archive_sql = "SELECT * FROM water_installation WHERE step = 'Complete'";
+                        $archive_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
+                        if (!empty($archive_result)) {
+                    ?>
+                    <h3>Archive</h3>
+                    <?php } ?>
+                    <table class="table responsive stack" id="archive-table"></table>
                 </div>
             </div>
         </div>
