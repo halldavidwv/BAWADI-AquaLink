@@ -66,7 +66,7 @@
                     </table>
                     <br>
                     <?php 
-                        $archive_sql = "SELECT * FROM water_installation WHERE step = 'Complete'";
+                        $archive_sql = "SELECT * FROM water_installation WHERE step = 'Complete' AND time_updated < NOW() - INTERVAL 2 DAY";
                         $archive_result = mysqli_query($conn, $archive_sql);
                         if (!empty($archive_result)) {
                     ?>
