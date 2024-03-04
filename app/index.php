@@ -67,7 +67,7 @@
                     <br>
                     <?php 
                         $archive_sql = "SELECT * FROM water_installation WHERE step = 'Complete'";
-                        $archive_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
+                        $archive_result = mysqli_query($conn, $archive_sql);
                         if (!empty($archive_result)) {
                     ?>
                     <h3>Archive</h3>
