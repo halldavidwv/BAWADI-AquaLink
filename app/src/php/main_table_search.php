@@ -22,7 +22,7 @@ if (isset($search_value)) {
   if (!empty($all_result)) {
     while ($row = mysqli_fetch_assoc($all_result)) {
       // Output for the Complete Step
-      if ($row['step'] == "Complete") {
+      if ($row['step'] == "Completed") {
         echo "<tr>";
         echo "<td>"
               . $row['tracking_number'] .
@@ -98,7 +98,7 @@ if (isset($search_value)) {
 
   if (!empty($all_result)) {
     while ($row = mysqli_fetch_assoc($all_result)) {
-      if ($row['step'] == "Complete") {
+      if ($row['step'] == "Completed") {
         echo "<tr>";
         echo "<td>"
               . $row['tracking_number'] .

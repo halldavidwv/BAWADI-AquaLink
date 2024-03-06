@@ -55,7 +55,7 @@
                                 <th>Tracking Number</th>
                                 <th>Customer Name</th>
                                 <th>Email Address</th>
-                                <th>Step/Progress</th>
+                                <th>Progress</th>
                                 <th>Date Updated</th>
                                 <th>Action</th>
                             </tr>

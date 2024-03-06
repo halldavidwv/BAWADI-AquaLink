@@ -61,7 +61,7 @@ $(document).ready(function () {
         $('#step_details').append('<p class="lead">Duration: </p>');
         $('#step_details').append('<p class="lead"><b>15 Working Days after Payment</b></p>');
         break;
-      case 'Complete':
+      case 'Completed':
         $('#step_details').append('<h3>Water Installation Complete</h3>');
         $('#step_details').append(
           '<p class="lead">This indicates that the Water Installation Process is complete.</p>'

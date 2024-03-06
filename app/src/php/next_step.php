@@ -48,10 +48,10 @@ use Carbon\Carbon;
           }
           break;
         case "Phase-4-Step-1-Existing-Tapping":
-            $next_step = "Complete";
+            $next_step = "Completed";
             break;
         case "Phase-4-Step-1-Proposed-Tapping":
-            $next_step = "Complete";
+            $next_step = "Completed";
             break;
         default:
             $next_step = $step;

@@ -42,62 +42,62 @@ if (isset($_GET['tracking_number'])) {
         switch ($step) {
             case 'Phase-2-Step-1':
                 $expected_days = 1;
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
+                echo "<text><b>Progress: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Conduct inspection and advise/inform the applicant the standards in the proper lay-out of service line from tapping point to residence.</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-2-Step-2':
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
+                echo "<text><b>Progress: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Please comply with all the requirements and remarks indicated therein.</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>Depends on Customer-Applicant Schedule</text><br>";
                 break;
             case 'Phase-2-Step-3':
                 $expected_days = 1;
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
+                echo "<text><b>Progress: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Validating service line lay-out. Expect new process after business day</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-2-Step-4-Incomplete':
                 $expected_days = 1;
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
+                echo "<text><b>Progress: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Inspecting service line laid out. Please wait for an email.</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-2-Step-4-Complete':
                 $expected_days = 1;
-                echo "<text><b>Step: </b>Phase 2: Initial Inspection</b></text>";
+                echo "<text><b>Progress: </b>Phase 2: Initial Inspection</b></text>";
                 echo "<p><i>Service line approved. Please wait for the updated step</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-3-Step-1':
                 $expected_days = 1;
-                echo "<text><b>Step: </b>Phase 3: Payment of Fees</b></text>";
+                echo "<text><b>Progress: </b>Phase 3: Payment of Fees</b></text>";
                 echo "<p><i>Please go to the Tellers' Booth to sign the contract for Water Services and pay the corresponding water connection fees. Click the View Bill button for Bill Details.</i></p>";
                 echo '<a class="button" data-open="installation_bill_window">View Bill</a><br>';
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-4-Step-1-Existing-Tapping':
                 $expected_days = 9;
-                echo "<text><b>Step: </b>Phase 4: Installation</text>";
+                echo "<text><b>Progress: </b>Phase 4: Installation</text>";
                 echo "<p><i>The service connection installation is ongoing. Expect completion until 7 working days.</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;
             case 'Phase-4-Step-1-Proposed-Tapping':
                 $expected_days = 17;
-                echo "<text><b>Step: </b>Phase 4: Installation</text>";
+                echo "<text><b>Progress: </b>Phase 4: Installation</text>";
                 echo "<p><i>The service connection installation is ongoing. Expect completion until 15 working days.</i></p>";
-                echo "<text><b>Expect Day to Finish:</b></text><br>" ;
+                echo "<text><b>Expected Date of Completion:</b></text><br>" ;
                 echo "<text>" . expected_time($time_updated, $expected_days) . "</text><br>";
                 break;      
-            case 'Complete':
-                echo "<text><b>Step: </b>Water Installation Complete</b></text>";
+            case 'Completed':
+                echo "<text><b>Progress: </b>Water Installation Complete</b></text>";
                 echo "<br>";
                 break;
         }

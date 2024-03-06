@@ -8,10 +8,10 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
   // If the search value is a string for searching Customer Names
   if (is_string($search_value)) {
-    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Complete' AND time_updated < NOW() - INTERVAL 2 DAY AND customer_name LIKE '%$search_value%' LIMIT 16");
+    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND customer_name LIKE '%$search_value%' LIMIT 16");
   // If the search values is numeric for the searching tracking number.
   } if (is_numeric($search_value)) {
-    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Complete' AND time_updated < NOW() - INTERVAL 2 DAY AND tracking_number LIKE '%$search_value%' LIMIT 8");
+    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND tracking_number LIKE '%$search_value%' LIMIT 8");
   }
 
   $archive_sql->execute();
@@ -24,7 +24,7 @@ if (isset($search_value)) {
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
                 <th>Email Address</th>
-                <th>Step/Progress</th>
+                <th>Progress</th>
                 <th>Date Updated</th>
                 <th>Action</th>
               </tr>
@@ -64,7 +64,7 @@ if (isset($search_value)) {
   }
   // The output of all the data if there's no value in search box
 } else {
-  $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Complete' AND time_updated < NOW() - INTERVAL 2 DAY");
+  $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY");
   $all_sql->execute();
 
   $all_result = $all_sql->get_result();
@@ -74,7 +74,7 @@ if (isset($search_value)) {
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
                 <th>Email Address</th>
-                <th>Step/Progress</th>
+                <th>Progress</th>
                 <th>Date Updated</th>
                 <th>Action</th>
               </tr>
