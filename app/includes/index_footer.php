@@ -5,3 +5,4 @@
 <script type="text/javascript" src="/src/js/step_details.js"></script>
 <script type="text/javascript" src="/src/js/next_step_details.js"></script>
 <script type="text/javascript" src="/src/js/next_step_function.js"></script>
+<script type="text/javascript" src="/src/js/email_window_details.js"></script>

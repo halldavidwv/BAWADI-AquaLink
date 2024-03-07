@@ -51,16 +51,16 @@ if (isset($search_value)) {
              "</td>";
         echo "<td>
                 <div class='tiny button-group align-center-middle'>
-                  <a id='email-window-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-open='email_window' data-id='". $row['id'] . "'>
+                  <a id='email-window-button-" . $row['id'] . "' class='button' data-open='email_window' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-envelope fa-2xl'></i>
                   </a>
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>
-                  <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/edit_button.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-regular fa-pen-to-square fa-2xl'></i>
                   </a>
-                  <a href='delete.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/delete.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-solid fa-trash fa-2xl'></i>
                   </a>
                 </div>
@@ -114,10 +114,10 @@ if (isset($search_value)) {
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>
-                  <a href='edit_button.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/edit_button.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-regular fa-pen-to-square fa-2xl'></i>
                   </a>
-                  <a href='delete.php?id=" . $row['id'] . "' class='button'>
+                  <a href='src/php/delete.php?id=" . $row['id'] . "' class='button'>
                     <i class='fa-solid fa-trash fa-2xl'></i>
                   </a>
                 </div>
