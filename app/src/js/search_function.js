@@ -33,18 +33,4 @@ $(document).ready(function () {
 
   $('#tracking_number_search').keyup(debounceSearch);
 
-  function updateContent(url, tableID) {
-    $.ajax({
-      url: url,
-      success: function (data) {
-        $("#" + tableID).html(data);
-        $("#" + tableID).html(data).foundation();
-      }
-    });
-  }
-
-  updateContent("src/php/main_table_search.php", "main-table");
-  updateContent("src/php/phase_2_step_4_complete_search.php", "phase-2-step-4-complete-table");
-  updateContent("src/php/archive_table_search.php", "archive-table");
-
 });
