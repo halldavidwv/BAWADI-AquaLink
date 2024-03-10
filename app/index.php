@@ -44,6 +44,7 @@
                     </label>
                     <select class="" name="select_display_table" id="select_display_table" style="width: 45vh;">
                         <option value="main-table">Main Table</option>
+                        <option value="archive-table">Archive Table</option>
                         <option value="phase-2-step-1-table">Phase 2 Step 1 Table</option>
                         <option value="phase-2-step-2-table">Phase 2 Step 2 Table</option>
                         <option value="phase-2-step-3-table">Phase 2 Step 3 Table</option>

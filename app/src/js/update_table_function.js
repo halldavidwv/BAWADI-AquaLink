@@ -20,11 +20,14 @@ $(document).ready(function () {
             case 'main-table':
                 updateContent('/src/php/tables/main_table.php','current-table');
                 break;
-            case '':
+            case 'archive-table':
+                updateContent('/src/php/tables/archive_table.php','current-table');
                 break;
                 
         }
 
     });
+
+    $("#select_display_table").change();
 
 });
