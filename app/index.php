@@ -55,8 +55,8 @@
                         <option value="water-installation-completed-table">Water Installation Completed Table</option>
                     </select>
                     <br>
-                    <div id="current_table">
-
+                    <div class="cell auto" id="current-table">
+                        
                     </div>
                 </div>
             </div>

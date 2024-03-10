@@ -8,17 +8,17 @@ $(document).ready(function () {
                 $("#" + tableID).html(data).foundation();
             }
         });
-    }
+    };
 
     $(document).on('change', '#select_display_table', function() {
 
         var current_table_value = $(this).val();
         console.log(current_table_value);
 
-        $("#current_table").empty();
+        $("#current-table").empty();
         switch (current_table_value) {
             case 'main-table':
-                updateContent('/src/php/tables/main_table_search.php','current_table');
+                updateContent('/src/php/tables/main_table.php','current-table');
                 break;
             case '':
                 break;
