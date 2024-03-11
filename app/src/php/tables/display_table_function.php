@@ -70,6 +70,9 @@
              "</td>";
         echo "<td>
                 <div class='tiny button-group align-center-middle'>
+                  <a id='email-window-button-" . $row['id'] . "' class='button' data-open='email_window' data-id='". $row['id'] . "'>
+                    <i class='fa-solid fa-envelope fa-2xl'></i>
+                  </a>
                   <a id='next-step-button-" . $row['id'] . "' class='button' data-value='" . $row['step'] . "' data-id='". $row['id'] . "'>
                     <i class='fa-solid fa-forward-step fa-2xl'></i>
                   </a>

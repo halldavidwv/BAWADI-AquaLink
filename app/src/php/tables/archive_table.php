@@ -10,10 +10,10 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
   // If the search value is a string for searching Customer Names
   if (is_string($search_value)) {
-    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND customer_name LIKE '%$search_value%' LIMIT 16");
+    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND customer_name LIKE '%$search_value%' ORDER BY time_updated DESC");
   // If the search values is numeric for the searching tracking number.
   } if (is_numeric($search_value)) {
-    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND tracking_number LIKE '%$search_value%' LIMIT 8");
+    $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
   }
 
   $archive_sql->execute();
@@ -22,7 +22,8 @@ if (isset($search_value)) {
 
   // The output for the Main Table 
   if (!empty($archive_result)) {
-    echo "<h3>Main Table</h3>";
+    echo "<h3>Archive Table</h3>";
+    echo "<br>";
     echo "<table>";
     display_table_header();
     while ($row = mysqli_fetch_assoc($archive_result)) {
@@ -32,13 +33,14 @@ if (isset($search_value)) {
   }
   // The output of all the data if there's no value in search box
 } else {
-  $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY");
+  $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY ORDER BY time_updated DESC");
   $all_sql->execute();
 
   $all_result = $all_sql->get_result();
 
   if (!empty($all_result)) {
     echo "<h3>Archive Table</h3>";
+    echo "<br>";
     echo "<table>";
     display_table_header();
     while ($row = mysqli_fetch_assoc($all_result)) {
@@ -47,6 +49,7 @@ if (isset($search_value)) {
     echo "</table>";
   } else {
     echo "<h3>Archive Table</h3>";
+    echo "<br>";
     echo "<table>";
     display_table_header();
     echo "</table>";

@@ -10,11 +10,11 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
   // If the search value is a string for searching Customer Names
   if (is_string($search_value)) {
-    $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' LIMIT 16");
+    $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE customer_name LIKE '%$search_value%' ORDER BY time_updated DESC");
     // If the search values is numeric for the searching tracking number.
   }
   if (is_numeric($search_value)) {
-    $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' LIMIT 8");
+    $all_sql = $conn->prepare("SELECT * FROM water_installation WHERE tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
   }
 
   $all_sql->execute();
@@ -24,13 +24,13 @@ if (isset($search_value)) {
   // The output for the Main Table 
   if (!empty($all_result)) {
     echo "<h3>Main Table</h3>";
+    echo "<br>";
     echo "<table>";
     display_table_header();
     while ($row = mysqli_fetch_assoc($all_result)) {
       if ($row['step'] == "Completed") {
-        display_table_body($row);
-      }
-      if ($row['step'] == "Phase-2-Step-4-Complete") {
+        display_table_body_completed($row);
+      } else if ($row['step'] == "Phase-2-Step-4-Complete") {
         display_table_body($row);
       } else {
         display_table_body($row);
@@ -39,24 +39,27 @@ if (isset($search_value)) {
     echo "</table>";
   } else {
     echo "<h3>Main Table</h3>";
+    echo "<br>";
+    echo "<table>";
     display_table_header();
+    echo "</table>";
   }
   // The output of all the data if there's no value in search box
 } else {
-  $all_sql = $conn->prepare("SELECT * FROM water_installation");
+  $all_sql = $conn->prepare("SELECT * FROM water_installation ORDER BY time_updated DESC");
   $all_sql->execute();
 
   $all_result = $all_sql->get_result();
 
   if (!empty($all_result)) {
     echo "<h3>Main Table</h3>";
+    echo "<br>";
     echo "<table>";
     display_table_header();
     while ($row = mysqli_fetch_assoc($all_result)) {
       if ($row['step'] == "Completed") {
         display_table_body_completed($row);
-      }
-      if ($row['step'] == "Phase-2-Step-4-Complete") {
+      } else if ($row['step'] == "Phase-2-Step-4-Complete") {
         display_table_body_with_email($row);
       } else {
         display_table_body($row);
@@ -65,6 +68,7 @@ if (isset($search_value)) {
     echo "</table>";
   } else {
     echo "<h3>Main Table</h3>";
+    echo "<br>";
     echo "<table>";
     display_table_header();
     echo "</table>";

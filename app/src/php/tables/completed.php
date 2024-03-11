@@ -10,10 +10,10 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
     // If the search value is a string for searching Customer Names
     if (is_string($search_value)) {
-      $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-3-Step-1' AND customer_name LIKE '%$search_value%' ORDER BY time_updated DESC");
+      $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND customer_name LIKE '%$search_value%' ORDER BY time_updated DESC");
     // If the search values is numeric for the searching tracking number.
     } if (is_numeric($search_value)) {
-      $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-3-Step-1' AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
+      $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
     }
 
     $completed_sql->execute();
@@ -22,7 +22,7 @@ if (isset($search_value)) {
 
     // The output for the Phase 2 Step 4 Complete Table when search value is not empty 
     if (!empty($completed_result)) {
-      echo "<h3>Phase 3 Step 1 Table</h3>";
+      echo "<h3>Water Installation Completed Table</h3>";
       echo "<br>";
       echo "<table>";
       display_table_header();
@@ -33,13 +33,13 @@ if (isset($search_value)) {
     }
     // The output of all the data from Phase 2 Step 4 Complete if there's no value in search box
 } else {
-    $completed_all_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-3-Step-1' ORDER BY time_updated DESC");
+    $completed_all_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' ORDER BY time_updated DESC");
     $completed_all_sql->execute();
 
     $completed_all_result = $completed_all_sql->get_result();;
 
     if (!empty($completed_all_result)) {
-      echo "<h3>Phase 3 Step 1 Table</h3>";
+      echo "<h3>Water Installation Completed Table</h3>";
       echo "<br>";
       echo "<table>";
       display_table_header();
@@ -48,7 +48,7 @@ if (isset($search_value)) {
       }
       echo "</table>";
     } else {
-      echo "<h3>Phase 3 Step 1 Table</h3>";
+      echo "<h3>Water Installation Completed Table</h3>";
       echo "<br>";
       echo "<table>";
       display_table_header();
