@@ -26,18 +26,14 @@ $(document).ready(function () {
 
   $(document).on('change', '#select_display_table', function () {
 
-    var current_table_value_2 = $(this).val();
-    const currentCase = current_table_value_2;
-    console.log(current_table_value_2);
-
     let search = null;
 
     const debounceSearch = debounce(function () {
-      const currentCase = current_table_value_2;
+      const currentCase = $("#select_display_table").val();
       let search = $("#tracking_number_search").val();
       if (search != null) {
         currentSearch = search;
-        switch (current_table_value_2) {
+        switch (currentCase) {
           case 'main-table':
             searchContent("src/php/tables/main_table.php", search, "current-table")
             break;
