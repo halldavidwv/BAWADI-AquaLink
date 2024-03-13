@@ -42,7 +42,7 @@
                     <label class="text-left" for="">
                         Table Filter:
                     </label>
-                    <select class="" name="select_display_table" id="select_display_table" style="width: 45vh;">
+                    <select class="" name="select_display_table" id="select_display_table" style="width: 90vh;">
                         <option value="main-table">Main Table</option>
                         <option value="archive-table">Archive Table</option>
                         <option value="phase-2-step-1-table">Phase 2 Step 1 Table</option>
