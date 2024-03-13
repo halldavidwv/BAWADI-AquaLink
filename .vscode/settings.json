@@ -1,0 +1,6 @@
+{
+    "discord.workspaceExcludePatterns": [
+        "BAWADI-AquaLink"
+    ],
+    "discord.removeRemoteRepository": true
+}

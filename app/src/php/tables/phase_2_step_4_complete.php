@@ -2,6 +2,7 @@
 include("../connect_database.php");
 
 include("display_table_function.php");
+include("pagination.php");
 
 // Get the search value from the search box
 $search_value = $_POST['searchData'];
