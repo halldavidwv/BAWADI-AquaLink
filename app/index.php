@@ -6,8 +6,7 @@
     <div class="grid-container">
         <div class="grid-y" style="background-image: url(includes/trybg.png);">
             <h1>
-                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img
-                        src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
+                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
             </h1>
         </div>
         <div class="container-banner banner-pads">
@@ -20,7 +19,7 @@
         <br>
         <div class="top-bar stacked-for-medium">
             <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
+                <ul class="menu">
                     <li>
                         <a data-open="add_button">
                             Add New Customer
@@ -30,49 +29,36 @@
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><input name='tracking_number_search' id="tracking_number_search" type="search"
-                            placeholder="Name / Tracking Number"></li>
+                    <li>
+                        <input name='tracking_number_search' id="tracking_number_search" type="search" placeholder="Name / Tracking Number">
+                    </li>
                 </ul>
             </div>
         </div>
         <br>
         <div class="grid-container full">
             <div class="grid-x grid-margin-x" id="content">
-                <br>
                 <div class="cell auto">
-                    <?php 
-                        $phase_2_step_4_complete_sql = "SELECT * FROM water_installation WHERE step = 'Phase-2-Step-4-Complete'";
-                        $phase_2_step_4_complete_result = mysqli_query($conn, $phase_2_step_4_complete_sql);
-                        if (!empty($phase_2_step_4_complete_result)) {
-                    ?>
-                    <h3>Phase 2 Step 4 Complete Table</h3>
-                    <?php } ?>
-                    <table class="table responsive stack" id="phase-2-step-4-complete-table"></table>
-                    <h3>Main Table</h3>
-                    <table class="table responsive stack">
-                        <thead>
-                            <tr>
-                                <th>Tracking Number</th>
-                                <th>Customer Name</th>
-                                <th>Email Address</th>
-                                <th>Progress</th>
-                                <th>Date Updated</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="main-table">
-
-                        </tbody>
-                    </table>
+                    <label class="text-left" for="">
+                        Table Filter:
+                    </label>
+                    <select class="" name="select_display_table" id="select_display_table" style="width: 90vh;">
+                        <option value="main-table">Main Table</option>
+                        <option value="archive-table">Archive Table</option>
+                        <option value="phase-2-step-1-table">Phase 2 Step 1 Table</option>
+                        <option value="phase-2-step-2-table">Phase 2 Step 2 Table</option>
+                        <option value="phase-2-step-3-table">Phase 2 Step 3 Table</option>
+                        <option value="phase-2-step-4-incomplete-table">Phase 2 Step 4 Incomplete Table</option>
+                        <option value="phase-2-step-4-complete-table">Phase 2 Step 4 Complete Table</option>
+                        <option value="phase-3-step-1-table">Phase 3 Step 1 Table</option>
+                        <option value="phase-4-step-1-existing-tapping-table">Phase 4 Step 1 Existing Tapping Point Table</option>
+                        <option value="phase-4-step-1-proposed-tapping-table">Phase 4 Step 1 Proposed Tapping Point Table</option>
+                        <option value="water-installation-completed-table">Water Installation Completed Table</option>
+                    </select>
                     <br>
-                    <?php 
-                        $archive_sql = "SELECT * FROM water_installation WHERE step = 'Complete' AND time_updated < NOW() - INTERVAL 2 DAY";
-                        $archive_result = mysqli_query($conn, $archive_sql);
-                        if (!empty($archive_result)) {
-                    ?>
-                    <h3>Archive</h3>
-                    <?php } ?>
-                    <table class="table responsive stack" id="archive-table"></table>
+                    <div class="cell auto" id="current-table">
+                        
+                    </div>
                 </div>
             </div>
         </div>

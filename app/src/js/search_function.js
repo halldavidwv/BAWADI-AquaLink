@@ -24,27 +24,55 @@ $(document).ready(function () {
     });
   }
 
-  const debounceSearch = debounce(function () {
-    let search = $("#tracking_number_search").val();
-    searchContent("src/php/main_table_search.php", search, "main-table");
-    searchContent("src/php/phase_2_step_4_complete_search.php", search, "phase-2-step-4-complete-table");
-    searchContent("src/php/archive_table_search.php", search, "archive-table");
-  }, 300);
+  $(document).on('change', '#select_display_table', function () {
 
-  $('#tracking_number_search').keyup(debounceSearch);
+    let search = null;
 
-  function updateContent(url, tableID) {
-    $.ajax({
-      url: url,
-      success: function (data) {
-        $("#" + tableID).html(data);
-        $("#" + tableID).html(data).foundation();
+    const debounceSearch = debounce(function () {
+      const currentCase = $("#select_display_table").val();
+      let search = $("#tracking_number_search").val();
+      if (search != null) {
+        currentSearch = search;
+        switch (currentCase) {
+          case 'main-table':
+            searchContent("src/php/tables/main_table.php", search, "current-table")
+            break;
+          case 'archive-table':
+            searchContent("src/php/tables/archive_table.php", search, "current-table")
+            break;
+          case 'phase-2-step-1-table':
+            searchContent("src/php/tables/phase_2_step_1.php", search, "current-table")
+            break;
+          case 'phase-2-step-2-table':
+            searchContent("src/php/tables/phase_2_step_2.php", search, "current-table")
+            break;
+          case 'phase-2-step-3-table':
+            searchContent("src/php/tables/phase_2_step_3.php", search, "current-table")
+            break;
+          case 'phase-2-step-4-incomplete-table':
+            searchContent("src/php/tables/phase_2_step_4_incomplete.php", search, "current-table")
+            break;
+          case 'phase-2-step-4-complete-table':
+            searchContent("src/php/tables/phase_2_step_4_complete.php", search, "current-table")
+            break;
+          case 'phase-3-step-1-table':
+            searchContent("src/php/tables/phase_3_step_1.php", search, "current-table")
+            break;
+          case 'phase-4-step-1-existing-tapping-table':
+            searchContent("src/php/tables/phase_4_step_1_existing_tapping.php", search, "current-table")
+            break;
+          case 'phase-4-step-1-proposed-tapping-table':
+            searchContent("src/php/tables/phase_4_step_1_proposed_tapping.php", search, "current-table")
+            break;
+          case 'water-installation-completed-table':
+            searchContent("src/php/tables/completed.php", search, "current-table")
+            break;
+        }
       }
-    });
-  }
+    }, 300);
 
-  updateContent("src/php/main_table_search.php", "main-table");
-  updateContent("src/php/phase_2_step_4_complete_search.php", "phase-2-step-4-complete-table");
-  updateContent("src/php/archive_table_search.php", "archive-table");
+    $('#tracking_number_search').keyup(debounceSearch);
+
+  });
 
 });
