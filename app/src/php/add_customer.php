@@ -5,6 +5,7 @@ include('connect_database.php');
 if (isset($_POST['add_customer'])) {
   $tracking_number = random_int(10000000,99999999);
   $customer_name = $_POST['customer_name'];
+  $address = $_POST['address'];
   $email_address = $_POST['email_address'];
   $step = 'Phase-2-Step-1';
 

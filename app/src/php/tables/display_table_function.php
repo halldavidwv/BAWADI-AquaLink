@@ -4,6 +4,7 @@
         echo "<thead><tr>
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
+                <th>Address</th>
                 <th>Email Address</th>
                 <th>Progress</th>
                 <th>Date Updated</th>
@@ -19,6 +20,9 @@
             "</td>";
         echo "<td>"
                 . $row['customer_name'] . 
+            "</td>";
+        echo "<td>"
+                . $row['address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
@@ -55,6 +59,9 @@
             "</td>";
         echo "<td>"
                 . $row['customer_name'] . 
+            "</td>";
+        echo "<td>"
+                . $row['address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
@@ -94,6 +101,9 @@
             "</td>";
         echo "<td>"
                 . $row['customer_name'] . 
+            "</td>";
+        echo "<td>"
+                . $row['address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
