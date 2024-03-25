@@ -22,7 +22,7 @@
                 . $row['customer_name'] . 
             "</td>";
         echo "<td>"
-                . $row['address'] . 
+                . $row['home_address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
@@ -61,7 +61,7 @@
                 . $row['customer_name'] . 
             "</td>";
         echo "<td>"
-                . $row['address'] . 
+                . $row['home_address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
@@ -103,7 +103,7 @@
                 . $row['customer_name'] . 
             "</td>";
         echo "<td>"
-                . $row['address'] . 
+                . $row['home_address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .

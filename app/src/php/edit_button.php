@@ -22,7 +22,7 @@
 
         $id = $_GET['id'];
 
-        $sql = $conn->prepare("SELECT customer_name, email_address, step FROM water_installation WHERE id = ?");
+        $sql = $conn->prepare("SELECT customer_name, home_address, email_address, step FROM water_installation WHERE id = ?");
         $sql->bind_param('i', $id);
         $sql->execute();
 
@@ -30,6 +30,7 @@
         $resultData = mysqli_fetch_assoc($result);
 
         $customer_name = $resultData['customer_name'];
+        $home_address = $resultData['home_address'];
         $email_address = $resultData['email_address'];
         $step = $resultData['step'];
         ?>
@@ -43,6 +44,7 @@
                         <br>
                         <h3>Customer Details</h3>
                         <input type="text" name="customer_name" class="form-control" value="<?php echo $customer_name; ?>" placeholder="Customer Name" autofocus>
+                        <input type="text" name="home_address" class="form-control" value="<?php echo $home_address; ?>" placeholder="Home Address" autofocus>
                         <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
                         <div class="button-group align-center">
                             <button class="submit success button" name='update' value='update'>Save</button>

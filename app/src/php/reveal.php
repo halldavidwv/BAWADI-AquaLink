@@ -8,7 +8,7 @@
                 <input type="text" required name="customer_name" class="form-control" value="<?php echo $customer_name; ?>" placeholder="Customer Name" autofocus>
                 <span class="form-error" data-form-error-on="required">This field is required.</span>
             </label>
-            <input type="text" name="Address" class="form-control" value="<?php echo $address; ?>" placeholder="Address" autofocus>
+            <input type="text" name="home_address" class="form-control" value="<?php echo $address; ?>" placeholder="Home Address" autofocus>
             <label>
                 <input type="text" required pattern="email" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
                 <span class="form-error" data-form-error-on="required">
