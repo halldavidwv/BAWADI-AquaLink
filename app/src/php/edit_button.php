@@ -43,9 +43,17 @@
                         <h1>Edit Customer</h1>
                         <br>
                         <h3>Customer Details</h3>
-                        <input type="text" name="customer_name" class="form-control" value="<?php echo $customer_name; ?>" placeholder="Customer Name" autofocus>
-                        <input type="text" name="home_address" class="form-control" value="<?php echo $home_address; ?>" placeholder="Home Address" autofocus>
-                        <input type="text" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
+                        <label>
+                            <input type="text" name="customer_name" required class="form-control" value="<?php echo $customer_name; ?>" placeholder="Customer Name" autofocus>
+                            <span class="form-error" data-form-error-on="required">This field is required.</span>
+                        </label>
+                        <label>
+                            <input type="text" name="home_address" required class="form-control" value="<?php echo $home_address; ?>" placeholder="Home Address" autofocus>
+                            <span class="form-error" data-form-error-on="required">This field is required.</span>
+                        </label>
+                        <label>
+                            <input type="text" name="email_address" required class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
+                        </label>
                         <div class="button-group align-center">
                             <button class="submit success button" name='update' value='update'>Save</button>
                             <a href="../../index.php" class='button'>Go Back</a>
