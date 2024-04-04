@@ -32,21 +32,24 @@
             <input type="text" required name="home_address" class="form-control" value="<?php echo $home_address; ?>" placeholder="Address"
                 autofocus>
                 <span class="form-error" data-form-error-on="required">This field is required.</span>
-        </label>
-        <label>
-            <input type="text" required pattern="email" name="email_address" class="form-control"
-                value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
-            <span class="form-error" data-form-error-on="required">
-                Email Address is required.
-            </span>
-            <span class="form-error" data-form-error-on="pattern">
-                Invalid Email
-            </span>
-        </label>
-        <button class="submit success button" name='add_customer'>Save</button>
-        <a class='button' data-close aria-label="Close modal">Go Back</a>
-    </form>
-</div>
+            </label>
+            <label>
+                <input type="text" name="home_address" required class="form-control" value="<?php echo $address; ?>" placeholder="Home Address" autofocus>
+                <span class="form-error" data-form-error-on="required">This field is required.</span>
+            </label>
+            <label>
+                <input type="text" required pattern="email" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
+                <span class="form-error" data-form-error-on="required">
+                    Email Address is required.
+                </span>
+                <span class="form-error" data-form-error-on="pattern">
+                    Invalid Email
+                </span>
+            </label>
+            <button class="submit success button" name='add_customer'>Save</button>
+            <a class='button' data-close aria-label="Close modal">Go Back</a>
+        </form>
+    </div>
 
 <div class="reveal" id="step_details_window" data-reveal>
     <div class="cell auto" id="step_details"></div>
