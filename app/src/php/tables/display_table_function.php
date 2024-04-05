@@ -4,7 +4,7 @@
         echo "<thead><tr>
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
-                <th>Address</th>
+                <th>Home Address</th>
                 <th>Email Address</th>
                 <th>Progress</th>
                 <th>Date Updated</th>
@@ -19,10 +19,10 @@
                 . $row['tracking_number'] . 
             "</td>";
         echo "<td>"
-                . $row['customer_name'] . 
+                . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .   
             "</td>";
         echo "<td>"
-                . $row['address'] . 
+                . $row['home_address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
@@ -58,10 +58,10 @@
                 . $row['tracking_number'] . 
             "</td>";
         echo "<td>"
-                . $row['customer_name'] . 
+                . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .
             "</td>";
         echo "<td>"
-                . $row['address'] . 
+                . $row['home_address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .
@@ -100,10 +100,10 @@
                 . $row['tracking_number'] . 
             "</td>";
         echo "<td>"
-                . $row['customer_name'] . 
+                . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .
             "</td>";
         echo "<td>"
-                . $row['address'] . 
+                . $row['home_address'] . 
             "</td>";
         echo "<td>"
                 . $row['email_address'] .

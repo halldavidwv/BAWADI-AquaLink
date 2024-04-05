@@ -5,8 +5,10 @@ USE bawadi_db;
 CREATE TABLE `water_installation` (
   `id` int NOT NULL,
   `tracking_number` int NOT NULL,
-  `customer_name` varchar(200) NOT NULL,
-  `address` varchar(200) NOT NULL,
+  `first_name` varchar(200) NOT NULL,
+  `last_name` varchar(64) NOT NULL,
+  `middle_name` varchar(64) NOT NULL,
+  `home_address` varchar(200) NOT NULL,
   `email_address` varchar(200) NOT NULL,
   `step` varchar(32) NOT NULL,
   `time_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP

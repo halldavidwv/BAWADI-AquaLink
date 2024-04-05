@@ -4,9 +4,9 @@
 
 <body>
     <div class="grid-container">
-        <div class="grid-y" style="background-image: url(includes/trybg.png);">
+        <div class="grid-y grid-margin-x" style="background-image: url(../../includes/trybg.png);">
             <h1>
-                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="https://baguiowaterdistrict.gov.ph/wp-content/uploads/2020/10/masthead.png" /></a>
+                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="includes/masthead.png" /></a>
             </h1>
         </div>
         <div class="container-banner banner-pads">
@@ -57,7 +57,7 @@
                     </select>
                     <br>
                     <div class="cell auto" id="current-table">
-                        
+
                     </div>
                 </div>
             </div>
