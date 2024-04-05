@@ -19,7 +19,7 @@
                 . $row['tracking_number'] . 
             "</td>";
         echo "<td>"
-                . $row['customer_name'] . 
+                . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .   
             "</td>";
         echo "<td>"
                 . $row['home_address'] . 
@@ -58,7 +58,7 @@
                 . $row['tracking_number'] . 
             "</td>";
         echo "<td>"
-                . $row['customer_name'] . 
+                . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .
             "</td>";
         echo "<td>"
                 . $row['home_address'] . 
@@ -100,7 +100,7 @@
                 . $row['tracking_number'] . 
             "</td>";
         echo "<td>"
-                . $row['customer_name'] . 
+                . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .
             "</td>";
         echo "<td>"
                 . $row['home_address'] . 

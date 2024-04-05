@@ -4,6 +4,11 @@
 
 <body>
     <div class="grid-container">
+        <div class="grid-y grid-margin-x" style="background-image: url(../../includes/trybg.png);">
+            <h1>
+                <a href="https://baguiowaterdistrict.gov.ph/" title="Baguio Water District" rel="home"><img src="includes/masthead.png" /></a>
+            </h1>
+        </div>
         <div class="container-banner banner-pads">
             <div class="grid-y text-center">
                 <header>
@@ -37,7 +42,7 @@
                     <label class="text-left" for="">
                         Table Filter:
                     </label>
-                    <select class="" name="select_display_table" id="select_display_table" style="width: 90vh;">
+                    <select class="" name="select_display_table" id="select_display_table" style="width: 45vh;">
                         <option value="main-table">Main Table</option>
                         <option value="archive-table">Archive Table</option>
                         <option value="phase-2-step-1-table">Phase 2 Step 1 Table</option>
@@ -52,7 +57,7 @@
                     </select>
                     <br>
                     <div class="cell auto" id="current-table">
-                        
+
                     </div>
                 </div>
             </div>

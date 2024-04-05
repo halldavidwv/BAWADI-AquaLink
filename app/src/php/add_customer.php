@@ -7,12 +7,11 @@ if (isset($_POST['add_customer'])) {
   $first_name = strtoupper($_POST['first_name']);
   $middle_name = strtoupper($_POST['middle_name']);
   $last_name = strtoupper($_POST['last_name']);
-  $customer_name = $last_name . ", " . $first_name . " " . $middle_name;
   $home_address = $_POST['home_address'];
   $email_address = $_POST['email_address'];
   $step = 'Phase-2-Step-1';
 
-  $sql = $conn->prepare("INSERT INTO water_installation(tracking_number, customer_name, home_address, email_address, step) VALUES($tracking_number, '$customer_name', '$home_address', '$email_address', '$step')");
+  $sql = $conn->prepare("INSERT INTO water_installation(tracking_number, first_name, last_name, middle_name, home_address, email_address, step) VALUES($tracking_number, '$first_name', '$last_name', '$middle_name', '$home_address', '$email_address', '$step')");
   if(!$sql){
     echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
   }
