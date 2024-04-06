@@ -25,10 +25,22 @@
                 </div>
             </div>
         </div>
-        <label>
-            <input type="text" name="home_address" required class="form-control" value="<?php echo $home_address; ?>" placeholder="Home Address" autofocus>
-            <span class="form-error" data-form-error-on="required">This field is required.</span>
-        </label>
+        <div id="customer_home_address_content">
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-6">
+                    <label>
+                        <input type="text" name="home_address_street" required class="form-control" value="<?php echo $home_address_street; ?>" placeholder="Street No./Building No./Barangay" autofocus>
+                        <span class="form-error" data-form-error-on="required">This field is required.</span>
+                    </label>
+                </div>
+                <div class="cell small-4">
+                    <label>
+                        <input type="text" name="home_address_city" required class="form-control" value="<?php echo $home_address_city; ?>" placeholder="City" autofocus>
+                        <span class="form-error" data-form-error-on="required">This field is required.</span>
+                    </label>
+                </div>
+            </div>
+        </div>
         <label>
             <input type="text" required pattern="email" name="email_address" class="form-control" value="<?php echo $email_address; ?>" placeholder="Email Address" autofocus>
             <span class="form-error" data-form-error-on="required">
