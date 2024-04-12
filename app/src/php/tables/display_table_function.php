@@ -1,7 +1,6 @@
 <?php
 
-    function display_table_header() {
-        echo "<thead><tr>
+    $display_table_header = "<thead><tr>
                 <th>Tracking Number</th>
                 <th>Customer Name</th>
                 <th>Home Address</th>
@@ -11,7 +10,7 @@
                 <th>Action</th>
               </tr>
             </thead>";
-    }
+
 
     function display_table_body($row) {
       echo "<tr>";
@@ -128,6 +127,35 @@
                 </div>
               </td>
             </tr>";
+    }
+    function display_table_title($title) {
+      echo "<h3>" . $title . "</h3>";
+    }
+
+    function generate_table($all_result) {
+      $table = "";
+    
+      if (!empty($all_result)) {
+        $table .= "<table>";
+        display_table_header(); // Assuming this function exists to display headers
+    
+        while ($row = mysqli_fetch_assoc($all_result)) {
+          if ($row['step'] == "Completed") {
+            $table .= display_table_body_completed($row); // Assuming this function exists to display completed rows
+          } else if ($row['step'] == "Phase-2-Step-4-Complete") {
+            $table .= display_table_body_with_email($row); // Assuming this function exists to display rows with email
+          } else {
+            $table .= display_table_body($row); // Assuming this function exists to display regular rows
+          }
+        }
+        $table .= "</table>";
+      } else {
+        $table = "<table>";
+        display_table_header(); // Assuming this function exists to display headers
+        $table .= "</table>";
+      }
+    
+      return $table;
     }
 
 ?>

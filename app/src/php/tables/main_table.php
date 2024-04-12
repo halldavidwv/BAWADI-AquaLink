@@ -23,10 +23,7 @@ if (isset($search_value)) {
 
   // The output for the Main Table 
   if (!empty($all_result)) {
-    echo "<h3>Main Table</h3>";
-    echo "<br>";
     echo "<table>";
-    display_table_header();
     while ($row = mysqli_fetch_assoc($all_result)) {
       if ($row['step'] == "Completed") {
         display_table_body_completed($row);
@@ -38,10 +35,7 @@ if (isset($search_value)) {
     }
     echo "</table>";
   } else {
-    echo "<h3>Main Table</h3>";
-    echo "<br>";
     echo "<table>";
-    display_table_header();
     echo "</table>";
   }
   // The output of all the data if there's no value in search box
@@ -51,26 +45,10 @@ if (isset($search_value)) {
 
   $all_result = $all_sql->get_result();
 
-  if (!empty($all_result)) {
-    echo "<h3>Main Table</h3>";
-    echo "<br>";
-    echo "<table>";
-    display_table_header();
-    while ($row = mysqli_fetch_assoc($all_result)) {
-      if ($row['step'] == "Completed") {
-        display_table_body_completed($row);
-      } else if ($row['step'] == "Phase-2-Step-4-Complete") {
-        display_table_body_with_email($row);
-      } else {
-        display_table_body($row);
-      }
-    }
-    echo "</table>";
-  } else {
-    echo "<h3>Main Table</h3>";
-    echo "<br>";
-    echo "<table>";
-    display_table_header();
-    echo "</table>";
-  }
+  $table_title = "<h3>Main Table</h3>";
+  $table_content = "<table>" . $display_table_header . "</table>";
+
+  $response_data = array('title' => $table_title, 'table' => $table_content);
+  echo json_encode($response_data);
+
 }

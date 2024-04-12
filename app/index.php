@@ -36,12 +36,12 @@
             </div>
         </div>
         <br>
-        <div class="grid-container full">
-            <div class="grid-x grid-margin-x" id="content">
-                <div class="cell auto">
-                    <label class="text-left" for="">
-                        Table Filter:
-                    </label>
+        <div id="table_content">
+            <div id="table_content_header" class="grid-x grid-margin-x" style="padding-left: 15px; padding-right: 15px;">
+                <div class="cell medium-8 text-justify" id="current-table-title" style="padding-top: 10px;">
+
+                </div>
+                <div class="cell auto" id="select_display_table_div">
                     <select class="" name="select_display_table" id="select_display_table" style="width: 45vh;">
                         <option value="main-table">Main Table</option>
                         <option value="archive-table">Archive Table</option>
@@ -55,11 +55,10 @@
                         <option value="phase-4-step-1-proposed-tapping-table">Phase 4 Step 1 Proposed Tapping Point Table</option>
                         <option value="water-installation-completed-table">Water Installation Completed Table</option>
                     </select>
-                    <br>
-                    <div class="cell auto" id="current-table">
-
-                    </div>
                 </div>
+            </div>
+            <div id="current-table">
+
             </div>
         </div>
         <?php include("src/php/reveal.php") ?>

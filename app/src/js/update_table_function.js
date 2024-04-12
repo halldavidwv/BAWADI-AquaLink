@@ -4,8 +4,11 @@ $(document).ready(function () {
         $.ajax({
             url: url,
             success: function (data) {
-                $("#" + tableID).html(data);
-                $("#" + tableID).html(data).foundation();
+                console.log("updating");
+                var response = JSON.parse(data);
+                $("#" + tableID).html(response.table);
+                $("#" + tableID).html(response.table).foundation();
+                $("#current-table-title").html(response.title);
             }
         });
     };
