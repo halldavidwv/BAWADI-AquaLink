@@ -10,7 +10,7 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
   // If the search value is a string for searching Customer Names
   if (is_string($search_value)) {
-    $phase_2_step_2_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-2-Step-2' AND customer_name LIKE '%$search_value%' ORDER BY time_updated DESC");
+    $phase_2_step_2_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-2-Step-2' AND (first_name LIKE '%$search_value%') OR (last_name LIKE '%$search_value%') OR (middle_name LIKE '%$search_value%') ORDER BY time_updated DESC");
     // If the search values is numeric for the searching tracking number.
   }
   if (is_numeric($search_value)) {
@@ -23,7 +23,7 @@ if (isset($search_value)) {
 
   // The output for the Main Table 
   if (!empty($phase_2_step_2_result)) {
-    echo "<h3>Phase 2 Step 2 Table/h3>";
+    echo "<h3>Phase 2 Step 2 Table</h3>";
     echo "<br>";
     echo "<table>";
     display_table_header();
@@ -46,7 +46,7 @@ if (isset($search_value)) {
   $phase_2_step_2_all_result = $phase_2_step_2_all_sql->get_result();
 
   if (!empty($phase_2_step_2_all_result)) {
-    echo "<h3>Phase 2 Step 2</h3>";
+    echo "<h3>Phase 2 Step 2 Table</h3>";
     echo "<br>";
     echo "<table>";
     display_table_header();
@@ -55,7 +55,7 @@ if (isset($search_value)) {
     }
     echo "</table>";
   } else {
-    echo "<h3>Phase 2 Step 2</h3>";
+    echo "<h3>Phase 2 Step 2 Table</h3>";
     echo "<br>";
     echo "<table>";
     display_table_header();
