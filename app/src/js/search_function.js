@@ -31,7 +31,7 @@ $(document).ready(function () {
     const debounceSearch = debounce(function () {
       const currentCase = $("#select_display_table").val();
       let search = $("#tracking_number_search").val();
-      if (search != null) {
+      if (search !== null) {
         currentSearch = search;
         switch (currentCase) {
           case 'main-table':
@@ -45,6 +45,7 @@ $(document).ready(function () {
             break;
           case 'phase-2-step-2-table':
             searchContent("src/php/tables/phase_2_step_2.php", search, "current-table")
+            console.log('Phase 2 Step 2 Table selected');
             break;
           case 'phase-2-step-3-table':
             searchContent("src/php/tables/phase_2_step_3.php", search, "current-table")

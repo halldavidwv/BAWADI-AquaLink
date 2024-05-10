@@ -10,7 +10,7 @@ $search_value = $_POST['searchData'];
 if (isset($search_value)) {
     // If the search value is a string for searching Customer Names
     if (is_string($search_value)) {
-      $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-3-Step-1' AND (first_name LIKE '%$search_value%') OR (last_name LIKE '%$search_value%') OR (middle_name LIKE '%$search_value%') ORDER BY time_updated DESC");
+      $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-3-Step-1' AND (CONCAT(first_name, ' ', last_name, ' ', middle_name) LIKE '%$search_value%') ORDER BY time_updated DESC");
     // If the search values is numeric for the searching tracking number.
     } if (is_numeric($search_value)) {
       $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-3-Step-1' AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
