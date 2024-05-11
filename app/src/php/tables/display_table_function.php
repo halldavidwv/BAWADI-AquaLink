@@ -107,7 +107,7 @@ function display_table_body_completed($row)
     . $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'] .
     "</td>";
   echo "<td>"
-    . $row['home_address'] .
+    . $row['home_address_street'] . ", " . $row['home_address_city'] .
     "</td>";
   echo "<td>"
     . $row['email_address'] .
