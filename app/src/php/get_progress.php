@@ -21,7 +21,7 @@ function expected_time ($timestamp, $add_days) {
 
 if (isset($_GET['tracking_number'])) {
     $tracking_number = $_GET['tracking_number'];
-    $query = $conn->prepare("SELECT customer_name, step, time_updated FROM water_installation WHERE tracking_number = ?");
+    $query = $conn->prepare("SELECT first_name, last_name, middle_name, step, time_updated FROM water_installation WHERE tracking_number = ?");
     $query->bind_param("i", $tracking_number);
     $query->execute();
     $result = $query->get_result(); 
@@ -30,7 +30,7 @@ if (isset($_GET['tracking_number'])) {
     if (mysqli_num_rows($result) == 0) {
         echo "<h3>Tracking Number Does Not Exist</h3>";
     } else {
-        $customer_name = $row['customer_name'];
+        $customer_name = $row['last_name'] . ", " . $row['first_name'] . " " . $row['middle_name'];
         $step = $row['step'];
         $time_updated = $row['time_updated'];
 
