@@ -18,7 +18,7 @@ if (isset($search_value)) {
   }
 
   if(!$all_sql) {
-    echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
   }
 
   $all_sql->execute();

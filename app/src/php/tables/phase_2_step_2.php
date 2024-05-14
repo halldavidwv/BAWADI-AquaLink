@@ -17,6 +17,10 @@ if (isset($search_value)) {
     $phase_2_step_2_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Phase-2-Step-2' AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
   }
 
+  if(!$phase_2_step_2_sql) {
+    echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+  }
+
   $phase_2_step_2_sql->execute();
   // Sending the query to the database using MySQLi
   $phase_2_step_2_result = $phase_2_step_2_sql->get_result();;

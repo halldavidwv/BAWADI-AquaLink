@@ -16,6 +16,10 @@ if (isset($search_value)) {
       $completed_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
     }
 
+    if(!$completed_sql) {
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+    }
+
     $completed_sql->execute();
     // Sending the query to the database using MySQLi
     $completed_result = $completed_sql->get_result();;

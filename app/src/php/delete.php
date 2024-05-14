@@ -5,6 +5,9 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $sql = $conn->prepare("DELETE FROM water_installation WHERE id = ?");
+    if(!$sql) {
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+    }
     $sql->bind_param('i', $id);
     $sql->execute();
 

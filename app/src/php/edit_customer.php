@@ -5,6 +5,9 @@ include('connect_database.php');
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $sql = $conn->prepare("SELECT first_name, last_name, middle_name, home_address_street, home_address_city, step FROM water_installation WHERE id = ?");
+  if(!$sql) {
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+  }
   $sql->bind_param("i", $id);
   $sql->execute();
 

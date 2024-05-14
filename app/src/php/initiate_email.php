@@ -6,16 +6,28 @@ use PHPMailer\PHPMailer\PHPMailer;
 $email_subject = $_POST['email_subject'];
 $email_content = $_POST['email_content'];
 
+$email_footer = "<br><br><br>" . 
+                "--------------------------------<br>" .
+                "<b>Baguio City Water District</b><br>" .
+                "<b>Telefax: (074) 442 3456</b><br>" .
+                "<b>Email: baguiowaterdistrictgmo@gmail.com</b><br>" .
+                "<b>Website: https://baguiowaterdistrict.gov.ph</b><br>";
+                
+
 if(isset($_GET['id'])) {
     include("connect_database.php");
+    include("credentials.php");
     $id = $_GET['id'];
-    $query = $conn->prepare("SELECT customer_name, email_address FROM water_installation WHERE id = $id");
+    $query = $conn->prepare("SELECT first_name, last_name, middle_name, email_address FROM water_installation WHERE id = $id");
+    if(!$query) {
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+    }
     $query->execute();
 
     $result = $query->get_result();
 
     $row = mysqli_fetch_assoc($result);
-    $customer_name = $row['customer_name'];
+    $customer_name = $row['last_name'] . ", " .  $row["first_name"] . " " . $row["middle_name"];
     $email_address = $row['email_address'];
 
     $mail = new PHPMailer();
@@ -23,14 +35,14 @@ if(isset($_GET['id'])) {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Port = 465;
-    $mail->Username = 'hall.davidwv@gmail.com';
-    $mail->Password = 'frfhefdytljhoclh';
+    $mail->Username = $send_message_email_address;
+    $mail->Password = $send_message_app_password;
     $mail->SMTPSecure = 'ssl';
-    $mail->setFrom('hall.davidwv@gmail.com');
+    $mail->setFrom($send_message_email_address);
     $mail->addAddress($email_address, $customer_name);
     $mail->isHTML(true);
     $mail->Subject = $email_subject;
-    $mailContent = $email_content;
+    $mailContent = $email_content . $email_footer;
     $mail->Body = $mailContent;
 
     if($mail->send()) {

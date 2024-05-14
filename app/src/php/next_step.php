@@ -10,6 +10,9 @@ use Carbon\Carbon;
     $id = $_GET['id'];
     $tapping_point = $_POST['tapping-point'];
 	  $query = $conn->prepare("SELECT step FROM water_installation WHERE id = ?");
+    if(!$query) {
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+    }
     $query->bind_param('i', $id);
     $query->execute();
 
@@ -61,6 +64,9 @@ use Carbon\Carbon;
 
     $current_timestamp = Carbon::now();
     $result = $conn->prepare("UPDATE water_installation SET step = '$next_step', time_updated = '$current_timestamp' WHERE id = $id");
+    if(!$result) {
+      echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+    }
     $query = $result->execute();
 
     if (!$query) {

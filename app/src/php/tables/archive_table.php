@@ -16,6 +16,10 @@ if (isset($search_value)) {
     $archive_sql = $conn->prepare("SELECT * FROM water_installation WHERE step = 'Completed' AND time_updated < NOW() - INTERVAL 2 DAY AND tracking_number LIKE '%$search_value%' ORDER BY time_updated DESC");
   }
 
+  if(!$archive_sql) {
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+  }
+
   $archive_sql->execute();
   // Sending the query to the database using MySQLi
   $archive_result = $archive_sql->get_result();;
