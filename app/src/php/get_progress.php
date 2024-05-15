@@ -19,6 +19,7 @@ function expected_time ($timestamp, $add_days) {
     echo $deadline_day_minimum . " - " . $deadline_day_maximum;
 }
 
+// This functionality will get the tracking number from the Customer Page, and get the details according to the tracking number.
 if (isset($_GET['tracking_number'])) {
     $tracking_number = $_GET['tracking_number'];
     $query = $conn->prepare("SELECT first_name, last_name, middle_name, step, time_updated FROM water_installation WHERE tracking_number = ?");

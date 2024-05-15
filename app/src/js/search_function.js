@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // This function is for debounce in search function.
   const debounce = function (func, delay) {
     let timer;
     return function (...args) {
@@ -10,7 +11,7 @@ $(document).ready(function () {
     };
   };
 
-  // Function to update the table when search value applied
+  // This function is to update the table when search value applied
   function searchContent(url, searchData, tableID) {
     $.ajax({
       url: url,
@@ -24,6 +25,7 @@ $(document).ready(function () {
     });
   }
 
+  // This functionality is whenever there's a value in the search box, it will search for that value inside the specific table from table select box.
   $(document).on('change', '#select_display_table', function () {
 
     let search = null;

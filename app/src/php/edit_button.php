@@ -20,6 +20,7 @@
         <?php
         include("connect_database.php");
 
+        // This functionality will get the user's details and redirected to another page to edit it.
         $id = $_GET['id'];
 
         $sql = $conn->prepare("SELECT first_name, last_name, middle_name, home_address_street, home_address_city, email_address, step FROM water_installation WHERE id = ?");

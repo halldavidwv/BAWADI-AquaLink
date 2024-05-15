@@ -1,3 +1,5 @@
+// This functionality is for building the window for email window whenever the email button is pressed.
+
 $(document).ready(function () {
     $(document).on('click', "a[id^='email-window-button-']", function () {
       $("#email_window").empty();

@@ -1,6 +1,7 @@
 <?php
 include("connect_database.php");
 
+// This functionality will delete the user from the system.
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 

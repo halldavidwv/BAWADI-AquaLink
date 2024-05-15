@@ -5,7 +5,7 @@ include('connect_database.php');
 require ('../../vendor/autoload.php');
 
 use Carbon\Carbon;
-
+  // This functionality will change the current step of the user to the next step.
   if (isset($_POST['next_step_confirm'])) {
     $id = $_GET['id'];
     $tapping_point = $_POST['tapping-point'];

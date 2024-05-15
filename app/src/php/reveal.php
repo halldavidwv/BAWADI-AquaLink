@@ -1,3 +1,5 @@
+<!-- This file contains the different reveal window that is used in the system. -->
+
 <div class="reveal" id="add_button" data-reveal>
     <form action="src/php/add_customer.php" method="post" data-abide novalidate>
         <h1 class="text-center">Add New Customer</h1>

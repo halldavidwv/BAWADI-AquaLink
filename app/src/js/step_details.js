@@ -1,3 +1,5 @@
+// This functionality is whenever the Step Details Button is pressed / clicked, it will show the details according to the current step of the user. 
+
 $(document).ready(function () {
   $(document).on("click", "a[id^='step-button-']", function () {
     var stepValue = $(this).data('value');

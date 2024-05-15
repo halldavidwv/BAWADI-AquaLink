@@ -1,3 +1,5 @@
+// This functionality is for the Customer Page. If the tracking number is correct, it will get the data of the tracking number from a PHP file.
+
 $(document).ready(function() {
     $("#view_progress").on("click", function() {
         console.log("Clicked!");

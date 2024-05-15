@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 $email_subject = $_POST['email_subject'];
 $email_content = $_POST['email_content'];
 
+// This is the footer for the email content
 $email_footer = "<br><br><br>" . 
                 "--------------------------------<br>" .
                 "<b>Baguio City Water District</b><br>" .
@@ -13,7 +14,8 @@ $email_footer = "<br><br><br>" .
                 "<b>Email: baguiowaterdistrictgmo@gmail.com</b><br>" .
                 "<b>Website: https://baguiowaterdistrict.gov.ph</b><br>";
                 
-
+// This functionality will get the details of the user, and send an email from the details in the email_window.php
+// Note: PHPMailer is used for this functionality.
 if(isset($_GET['id'])) {
     include("connect_database.php");
     include("credentials.php");

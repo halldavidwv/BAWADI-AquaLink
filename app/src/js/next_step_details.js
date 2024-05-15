@@ -1,3 +1,5 @@
+// This functionality is for building the window for Pre-requisite Window when Next Step Button is pressed.
+
 $(document).ready(function () {
     $(document).on('click', "a[id^='next-step-button-']", function () {
       $("#next_step").empty();

@@ -2,6 +2,7 @@
 
 include('connect_database.php');
 
+// This functionality will get the user details according to the ID, and change the details from the redirected page.
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $sql = $conn->prepare("SELECT first_name, last_name, middle_name, home_address_street, home_address_city, step FROM water_installation WHERE id = ?");

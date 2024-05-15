@@ -4,6 +4,7 @@ include('connect_database.php');
 $step_value = $_POST['stepValue'];
 $step_id = $_POST['stepID'];
 
+// This functionality will echo the details for the Pre-requisite Window.
 if(isset($step_value)) {
     switch($step_value) {
         case 'Phase-2-Step-1':

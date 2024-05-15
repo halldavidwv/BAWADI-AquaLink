@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    // This function is to simply apply the data from the PHP file to the table.
     function updateContent(url, tableID) {
         $.ajax({
             url: url,
@@ -10,6 +11,7 @@ $(document).ready(function () {
         });
     };
 
+    // This functionality is whenever the select box changes value, the content of the table will chnage according to the value.
     $(document).on('change', '#select_display_table', function() {
 
         var current_table_value = $(this).val();

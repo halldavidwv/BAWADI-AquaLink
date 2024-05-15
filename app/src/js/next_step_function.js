@@ -1,3 +1,4 @@
+// This functionality is for the checkbox inside the Pre-requisite Window.
 $(document).ready(function () {
     $(document).on('click', '#next_step', function () {
 
