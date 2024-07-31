@@ -19,6 +19,10 @@ $email_footer = "<br><br><br>" .
 if(isset($_GET['id'])) {
     include("connect_database.php");
     include("credentials.php");
+
+    if($send_message_email_address == "" && $send_message_app_password == "") {
+        echo "Please ensure that the Email Address & App Password for PHPMailer is not empty.";
+    } 
     $id = $_GET['id'];
     $query = $conn->prepare("SELECT first_name, last_name, middle_name, email_address FROM water_installation WHERE id = $id");
     if(!$query) {
